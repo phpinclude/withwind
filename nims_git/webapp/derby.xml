@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+<generatorConfiguration>
+
+  <classPathEntry location="C:/dev/workspace_oxygen/withwind_nims/lib/derby.jar" />
+
+  <context id="context1">
+  
+<!-- 	<plugin type="org.mybatis.generator.plugins.RowBoundsPlugin" /> -->
+    
+    <jdbcConnection connectionURL="jdbc:derby:C:/dev/workspace_oxygen/withwind_nims/nimsDB" driverClass="org.apache.derby.jdbc.EmbeddedDriver"/>
+
+	<javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    
+    <javaModelGenerator targetPackage="kr.pe.withwind.nims.domain" targetProject="withwind_nims" />
+    
+<!--     <sqlMapGenerator targetPackage="kr.pe.withwind.nims.mapper" targetProject="withwind_nims" /> -->
+    
+<!--     <javaClientGenerator targetPackage="kr.pe.withwind.nims.mapper" targetProject="withwind_nims" type="XMLMAPPER" /> -->
+    
+
+	<table tableName="PRODUCT_INFO" schema="APP" domainObjectName="ProductInfo" />
+    
+  </context>
+</generatorConfiguration>
+

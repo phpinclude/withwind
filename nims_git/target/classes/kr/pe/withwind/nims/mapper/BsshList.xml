@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BsshList">
+	
+	<update id="create">
+		CREATE TABLE BSSH_LIST
+		(
+		    BSSH_CD VARCHAR(20) NOT NULL,
+		    BSSH_NM VARCHAR(255),
+		    INDUTY_CD VARCHAR(10),
+		    INDUTY_NM VARCHAR(255),
+		    HDNT_CD VARCHAR(10),
+		    HDNT_NM VARCHAR(255),
+		    BIZRNO VARCHAR(50),
+		    RPRSNTV_NM VARCHAR(255),
+		    CHRG_NM VARCHAR(255),
+		    HPTL_NO VARCHAR(255),
+		    TEL_NO VARCHAR(50),
+		    PRIMARY KEY (BSSH_CD)
+		)
+	</update>
+	<select id="selectByParam" resultType="bsshList">
+		SELECT 
+			BSSH_CD
+			,BSSH_NM
+			,INDUTY_CD
+			,INDUTY_NM
+			,HDNT_CD
+			,HDNT_NM
+			,BIZRNO
+			,RPRSNTV_NM
+			,CHRG_NM
+			,HPTL_NO
+			,TEL_NO
+		FROM BSSH_LIST
+		WHERE 1=1
+			<if test="bsshCd != null">AND BSSH_CD = #{bsshCd}</if>
+			<if test="bsshNm != null">AND BSSH_NM = #{bsshNm}</if>
+			<if test="indutyCd != null">AND INDUTY_CD = #{indutyCd}</if>
+			<if test="indutyNm != null">AND INDUTY_NM = #{indutyNm}</if>
+			<if test="hdntCd != null">AND HDNT_CD = #{hdntCd}</if>
+			<if test="hdntNm != null">AND HDNT_NM = #{hdntNm}</if>
+			<if test="bizrno != null">AND BIZRNO = #{bizrno}</if>
+			<if test="rprsntvNm != null">AND RPRSNTV_NM = #{rprsntvNm}</if>
+			<if test="chrgNm != null">AND CHRG_NM = #{chrgNm}</if>
+			<if test="hptlNo != null">AND HPTL_NO = #{hptlNo}</if>
+			<if test="telNo != null">AND TEL_NO = #{telNo}</if>
+	</select>
+	
+	<select id="selectByPk" parameterType="String" resultType="bsshList">
+		SELECT 
+			BSSH_CD
+			,BSSH_NM
+			,INDUTY_CD
+			,INDUTY_NM
+			,HDNT_CD
+			,HDNT_NM
+			,BIZRNO
+			,RPRSNTV_NM
+			,CHRG_NM
+			,HPTL_NO
+			,TEL_NO
+		FROM BSSH_LIST
+		WHERE 
+			BSSH_CD = #{bsshCd}
+	</select>
+	
+	<insert id="insert" parameterType="bsshList">
+		INSERT INTO BSSH_LIST (
+			BSSH_CD
+			,BSSH_NM
+			,INDUTY_CD
+			,INDUTY_NM
+			,HDNT_CD
+			,HDNT_NM
+			,BIZRNO
+			,RPRSNTV_NM
+			,CHRG_NM
+			,HPTL_NO
+			,TEL_NO
+		)
+		VALUES (
+			#{bsshCd}
+			,#{bsshNm}
+			,#{indutyCd}
+			,#{indutyNm}
+			,#{hdntCd}
+			,#{hdntNm}
+			,#{bizrno}
+			,#{rprsntvNm}
+			,#{chrgNm}
+			,#{hptlNo}
+			,#{telNo}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="bsshList">
+		UPDATE BSSH_LIST SET
+			BSSH_CD = #{bsshCd}
+			<if test="bsshNm != null">,BSSH_NM = #{bsshNm}</if>
+			<if test="indutyCd != null">,INDUTY_CD = #{indutyCd}</if>
+			<if test="indutyNm != null">,INDUTY_NM = #{indutyNm}</if>
+			<if test="hdntCd != null">,HDNT_CD = #{hdntCd}</if>
+			<if test="hdntNm != null">,HDNT_NM = #{hdntNm}</if>
+			<if test="bizrno != null">,BIZRNO = #{bizrno}</if>
+			<if test="rprsntvNm != null">,RPRSNTV_NM = #{rprsntvNm}</if>
+			<if test="chrgNm != null">,CHRG_NM = #{chrgNm}</if>
+			<if test="hptlNo != null">,HPTL_NO = #{hptlNo}</if>
+			<if test="telNo != null">,TEL_NO = #{telNo}</if>
+		WHERE 1=1
+			AND BSSH_CD = #{bsshCd}
+	</update>
+</mapper>

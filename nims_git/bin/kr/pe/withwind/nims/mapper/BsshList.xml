@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BsshList">
+	<select id="selectAll" resultType="bsshList">
+		SELECT 
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+		FROM BSSH_INFO
+	</select>
+	
+	<select id="selectByPk" parameterType="String" resultType="bsshList">
+		SELECT 
+			BSSH_CD
+			,BSSH_NM
+			,INDUTY_CD
+			,INDUTY_NM
+			,HDNT_CD
+			,HDNT_NM
+			,BIZRNO
+			,RPRSNTV_NM
+			,CHRG_NM
+			,HPTL_NO
+			,TEL_NO
+		FROM BSSH_LIST
+		WHERE 
+			BSSH_CD = #{bsshCd}
+	</select>
+	
+	<insert id="insert" parameterType="bsshList">
+		INSERT INTO BSSH_LIST (
+			BSSH_CD
+			,BSSH_NM
+			,INDUTY_CD
+			,INDUTY_NM
+			,HDNT_CD
+			,HDNT_NM
+			,BIZRNO
+			,RPRSNTV_NM
+			,CHRG_NM
+			,HPTL_NO
+			,TEL_NO
+		)
+		VALUES (
+			#{bsshCd}
+			,#{bsshNm}
+			,#{indutyCd}
+			,#{indutyNm}
+			,#{hdntCd}
+			,#{hdntNm}
+			,#{bizrno}
+			,#{rprsntvNm}
+			,#{chrgNm}
+			,#{hptlNo}
+			,#{telNo}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="bsshList">
+		UPDATE BSSH_LIST SET
+			BSSH_CD = #{bsshCd}
+			<if test="bsshCd != null">,BSSH_NM = #{bsshNm}</if>
+			<if test="bsshCd != null">,INDUTY_CD = #{indutyCd}</if>
+			<if test="bsshCd != null">,INDUTY_NM = #{indutyNm}</if>
+			<if test="bsshCd != null">,HDNT_CD = #{hdntCd}</if>
+			<if test="bsshCd != null">,HDNT_NM = #{hdntNm}</if>
+			<if test="bsshCd != null">,BIZRNO = #{bizrno}</if>
+			<if test="bsshCd != null">,RPRSNTV_NM = #{rprsntvNm}</if>
+			<if test="bsshCd != null">,CHRG_NM = #{chrgNm}</if>
+			<if test="bsshCd != null">,HPTL_NO = #{hptlNo}</if>
+			<if test="bsshCd != null">,TEL_NO = #{telNo}</if>
+		WHERE 1=1
+			AND BSSH_CD = #{bsshCd}
+	</update>
+</mapper>

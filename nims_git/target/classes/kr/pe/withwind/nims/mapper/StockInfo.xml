@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="StockInfo">
+	<update id="createTable">
+		CREATE TABLE STOCK_LIST (
+		    STORAGE_NO VARCHAR(10) DEFAULT 'S0001' NOT NULL
+		    ,PRODUCT_CD VARCHAR(20) DEFAULT '' NOT NULL
+		    ,LOT_NO VARCHAR(20) DEFAULT '' NOT NULL
+		    ,VALID_DE VARCHAR(8) DEFAULT '99991231' NOT NULL
+		    ,SERIAL_NO VARCHAR(50) DEFAULT '' NOT NULL
+		    ,BARCODE_STR VARCHAR(200)
+		    ,PIECE_CNT DOUBLE DEFAULT 1 NOT NULL
+		    ,REASON_CD VARCHAR(5) DEFAULT 'DEF' NOT NULL
+		    ,USR_RPT_ID_NO VARCHAR(50)
+		    ,REG_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+		    ,MOD_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+		    ,PRIMARY KEY(STORAGE_NO,PRODUCT_CD,LOT_NO,VALID_DE,SERIAL_NO)
+		)
+	</update>
+	
+	<select id="selectByPk" parameterType="stockInfo" resultType="stockInfo">
+		SELECT 
+			STORAGE_NO
+		    ,PRODUCT_CD
+		    ,LOT_NO
+		    ,VALID_DE
+		    ,SERIAL_NO
+		    ,BARCODE_STR
+		    ,PIECE_CNT
+		    ,REASON_CD
+		    ,USR_RPT_ID_NO
+		    ,REG_DT
+		    ,MOD_DT
+		FROM STOCK_INFO
+		WHERE 1=1
+			AND STORAGE_NO = #{storageNo}
+			AND PRODUCT_CD = #{productCd}
+			AND LOT_NO = #{lotNo}
+			AND VALID_DE = #{validDe}
+			AND SERIAL_NO = #{serialNo}
+	</select>
+	
+	<select id="selectByParam" parameterType="stockInfo" resultType="stockInfo">
+		SELECT 
+		    A.STORAGE_NO
+		    ,A.PRODUCT_CD
+		    ,B.PRODUCT_NM || '['|| B.MIN_QTY || B.MIN_QTY_NM || ' ' || B.PCE_CNT || B.PCE_NM ||']' AS PRODUCT_NM
+		    ,A.LOT_NO
+		    ,A.VALID_DE
+		    ,A.SERIAL_NO
+		    ,A.BARCODE_STR
+		    ,A.PIECE_CNT
+		    ,A.REASON_CD
+		    ,A.USR_RPT_ID_NO
+		    ,A.REG_DT
+		    ,A.MOD_DT
+		FROM STOCK_INFO A LEFT JOIN PRODUCT_INFO B ON A.PRODUCT_CD = B.PRODUCT_CD
+		WHERE 1=1
+			<if test="storageNo != ''">AND A.STORAGE_NO = #{storageNo}</if>
+			<if test="productCd != ''">AND A.PRODUCT_CD = #{productCd}</if>
+			<if test="lotNo != ''">AND A.LOT_NO = #{lotNo}</if>
+			<if test="validDe != '99991231'">AND A.VALID_DE = #{validDe}</if>
+			<if test="serialNo != ''">AND A.SERIAL_NO = #{serialNo}</if>
+			<if test="barcodeStr != null">AND A.BARCODE_STR = #{barcodeStr}</if>
+			<if test="reasonCd != null">AND A.REASON_CD = #{reasonCd}</if>
+			<if test="usrRptIdNo != null">AND A.USR_RPT_ID_NO = #{usrRptIdNo}</if>
+			<if test="productNm != null">AND B.PRODUCT_NM like '%'|| #{productNm} ||'%'</if>
+			<if test="chkZero == 'Yes'">AND A.PIECE_CNT > 0</if>
+		ORDER BY PRODUCT_CD, VALID_DE DESC
+	</select>
+	
+	<insert id="insert" parameterType="stockInfo">
+		INSERT INTO STOCK_INFO (
+			STORAGE_NO
+		    ,PRODUCT_CD
+		    ,LOT_NO
+		    ,VALID_DE
+		    ,SERIAL_NO
+		    ,BARCODE_STR
+		    ,PIECE_CNT
+		    ,REASON_CD
+		    ,USR_RPT_ID_NO
+		)
+		VALUES (
+			#{storageNo}
+		    ,#{productCd}
+		    ,#{lotNo}
+		    ,#{validDe}
+		    ,#{serialNo}
+		    ,#{barcodeStr}
+		    ,#{pieceCnt}
+		    ,#{reasonCd}
+		    ,#{usrRptIdNo}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="stockInfo">
+		UPDATE STOCK_INFO SET
+			MOD_DT = CURRENT_TIMESTAMP
+			<if test="barcodeStr != null">,BARCODE_STR = #{barcodeStr}</if>
+			<if test="pieceCnt != null">,PIECE_CNT = #{pieceCnt}</if>
+			<if test="reasonCd != null">,REASON_CD = #{reasonCd}</if>
+			<if test="usrRptIdNo != null">,USR_RPT_ID_NO = #{usrRptIdNo}</if>
+		WHERE 1=1
+			AND STORAGE_NO = #{storageNo}
+			AND PRODUCT_CD = #{productCd}
+			AND LOT_NO = #{lotNo}
+			AND VALID_DE = #{validDe}
+			AND SERIAL_NO = #{serialNo}
+	</update>
+</mapper>

@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BsshSetting">
+	
+	<update id="create">
+		CREATE TABLE BSSH_SETTING
+		(
+		    INF_TYPE VARCHAR(10) NOT NULL,
+		    BSSH_CD VARCHAR(20),
+		    AUTH_KEY VARCHAR(200),
+		    RPTR_NM VARCHAR(50),
+		    RPTR_ENTRPS_NM VARCHAR(200),
+		    PUBLIC_KEY VARCHAR(1000) NOT NULL DEFAULT '30820122300d06092a864886f70d01010105000382010f003082010a0282010100a276b723301526dcec143d1d8c77ba2c007dddf14b461d403c9db5fce2ca7091cbecf0622af3aebcb7d7e824dbeb33c281906815c829df82ff8a5c5224336fd4038d3c2bef7b28b21c00f81c087813d0b28298aa67cc63cb8f3e3d7265533380e5f649082f14bfcb6439bf8530275be3cdb3c7cb2ee535e2f8e73ef693bf0bedcb40726bd908c9816c0ed9b03a5f7c1770998db39cb292c7c6c09eb81033c1d4d1193ceb1571d5c41bd9388f697621169baba50648cb9c4a9bd9f8eac168dcba8337923b712824eaa4951bef19f726ca7f5e87d8dde3de7ff2e42001544ca7b55a83ab0ecc0c483c79a97666b0be513d4e619a97330668ec725776973b55421b0203010001',
+		    CHRG_NM VARCHAR(50),
+		    CHRG_TEL_NO VARCHAR(50),
+		    CHRG_MP_NO VARCHAR(50),
+		    REGISTER_ID VARCHAR(50),
+		    PRIMARY KEY(INF_TYPE)
+		)
+	</update>
+
+	<select id="selectAll" resultType="bsshSetting">
+		SELECT 
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+			,CHRG_NM
+			,CHRG_TEL_NO
+			,CHRG_MP_NO
+			,REGISTER_ID
+		FROM BSSH_SETTING
+	</select>
+	
+	<select id="selectByPk" parameterType="String" resultType="bsshSetting">
+		SELECT 
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+			,CHRG_NM
+			,CHRG_TEL_NO
+			,CHRG_MP_NO
+			,REGISTER_ID
+		FROM BSSH_SETTING
+		WHERE 
+			INF_TYPE = #{infType}
+	</select>
+	
+	<insert id="insert" parameterType="bsshSetting">
+		INSERT INTO BSSH_SETTING (
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+			,CHRG_NM
+			,CHRG_TEL_NO
+			,CHRG_MP_NO
+			,REGISTER_ID
+		)
+		VALUES (
+			#{infType}
+			,#{bsshCd}
+			,#{authKey}
+			,#{rptrNm}
+			,#{rptrEntrpsNm}
+			,#{publicKey}
+			,#{chrgNm}
+			,#{chrgTelNo}
+			,#{chrgMpNo}
+			,#{registerId}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="bsshSetting">
+		UPDATE BSSH_SETTING SET
+			INF_TYPE = #{infType}
+			<if test="bsshCd != null">,BSSH_CD = #{bsshCd}</if>
+			<if test="authKey != null">,AUTH_KEY = #{authKey}</if>
+			<if test="rptrNm != null">,RPTR_NM = #{rptrNm}</if>
+			<if test="rptrEntrpsNm != null">,RPTR_ENTRPS_NM = #{rptrEntrpsNm}</if>
+			<if test="publicKey != null">,PUBLIC_KEY = #{publicKey}</if>
+			<if test="chrgNm != null">,CHRG_NM = #{chrgNm}</if>
+			<if test="chrgTelNo != null">,CHRG_TEL_NO = #{chrgTelNo}</if>
+			<if test="chrgMpNo != null">,CHRG_MP_NO = #{chrgMpNo}</if>
+			<if test="registerId != null">,REGISTER_ID = #{registerId}</if>
+		WHERE 1=1
+			AND INF_TYPE = #{infType}
+	</update>
+</mapper>

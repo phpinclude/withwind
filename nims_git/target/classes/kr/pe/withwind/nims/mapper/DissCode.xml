@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DissCode">
+	<update id="createTable">
+		CREATE TABLE DISS_CODE
+		(
+		    DISS_SEQ CHAR(16) NOT NULL
+		    ,KCD_REFORM_ODR CHAR(1)
+		    ,DISS_CD VARCHAR(10)
+		    ,UPPER_DISS_CD VARCHAR(10)
+		    ,DISS_NM VARCHAR(500)
+		    ,DISS_NM_EN VARCHAR(500)
+		    ,REG_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+		    ,PRIMARY KEY (DISS_SEQ)
+		)
+	</update>
+	
+	<select id="selectByPk" parameterType="dissCode" resultType="dissCode">
+		SELECT 
+			DISS_SEQ
+		    ,KCD_REFORM_ODR
+		    ,DISS_CD
+		    ,UPPER_DISS_CD
+		    ,DISS_NM
+		    ,DISS_NM_EN
+		    ,REG_DT
+		FROM DISS_CODE
+		WHERE 1=1
+			AND DISS_SEQ = #{dissSeq}
+	</select>
+	
+	<select id="selectByParam" parameterType="dissCode" resultType="dissCode">
+		SELECT 
+		    DISS_SEQ
+		    ,KCD_REFORM_ODR
+		    ,DISS_CD
+		    ,UPPER_DISS_CD
+		    ,DISS_NM
+		    ,DISS_NM_EN
+		    ,REG_DT
+		FROM DISS_CODE
+		WHERE 1=1
+			<if test="dissSeq != null">AND DISS_SEQ = #{dissSeq}</if>
+			<if test="kcdReformOdr != null">AND KCD_REFORM_ODR = #{kcdReformOdr}</if>
+			<if test="dissCd != null">AND DISS_CD = #{dissCd}</if>
+			<if test="upperDissCd != null">AND UPPER_DISS_CD = #{upperDissCd}</if>
+			<if test="dissNm != null">AND DISS_NM LIKE '%' || #{dissNm} || '%'</if>
+			<if test="dissNmEn != null">AND DISS_NM_EN LIKE '%' || #{dissNmEn} || '%'</if>
+		ORDER BY DISS_CD, UPPER_DISS_CD
+	</select>
+	
+	<insert id="insert" parameterType="dissCode">
+		INSERT INTO DISS_CODE (
+			DISS_SEQ
+		    ,KCD_REFORM_ODR
+		    ,DISS_CD
+		    ,UPPER_DISS_CD
+		    ,DISS_NM
+		    ,DISS_NM_EN
+		)
+		VALUES (
+			#{dissSeq}
+		    ,#{kcdReformOdr}
+		    ,#{dissCd}
+		    ,#{upperDissCd}
+		    ,#{dissNm}
+		    ,#{dissNmEn}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="dissCode">
+		UPDATE DISS_CODE SET
+			DISS_SEQ = #{dissSeq}
+			<if test="kcdReformOdr != null">,KCD_REFORM_ODR = #{kcdReformOdr}</if>
+			<if test="dissCd != null">,DISS_CD = #{dissCd}</if>
+			<if test="upperDissCd != null">,UPPER_DISS_CD = #{upperDissCd}</if>
+			<if test="dissNm != null">,DISS_NM = #{dissNm}</if>
+			<if test="dissNmEn != null">,DISS_NM_EN = #{dissNmEn}</if>
+		WHERE 1=1
+			AND DISS_SEQ = #{dissSeq}
+	</update>
+</mapper>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PatntInfo">
+	<update id="createSeq">
+		CREATE SEQUENCE PATNT_INFO_SEQ
+		AS BIGINT
+		START WITH 1000000000
+	</update>
+	<update id="createTable">
+		CREATE TABLE PATNT_INFO
+		(
+		    PATNT_NO BIGINT NOT NULL
+		    ,PATNT_NM VARCHAR(60) NOT NULL
+		    ,ID_TYPE VARCHAR(5)
+		    ,ID_NO VARCHAR(128)
+		    ,BRTHDY VARCHAR(8)
+		    ,SEX CHAR(1)
+		    ,DEL_YN CHAR(1) DEFAULT 'N' NOT NULL
+		    ,TEL_NO VARCHAR(20)
+		    ,ADDR VARCHAR(200)
+		    ,ETC VARCHAR(1000)
+		    ,REG_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+		    ,PRIMARY KEY(PATNT_NO)
+		)
+	</update>
+	
+	<select id="selectByPk" parameterType="patntInfo" resultType="patntInfo">
+		SELECT 
+			PATNT_NO
+		    ,PATNT_NM
+		    ,ID_TYPE
+		    ,ID_NO
+		    ,BRTHDY
+		    ,SEX
+		    ,DEL_YN
+		    ,TEL_NO
+		    ,ADDR
+		    ,ETC
+		    ,REG_DT
+		FROM PATNT_INFO
+		WHERE 1=1
+			AND PATNT_NO = #{patntNo}
+	</select>
+	
+	<select id="selectByParam" parameterType="patntInfo" resultType="patntInfo">
+		SELECT 
+		    PATNT_NO
+		    ,PATNT_NM
+		    ,ID_TYPE
+		    ,ID_NO
+		    ,BRTHDY
+		    ,SEX
+		    ,DEL_YN
+		    ,TEL_NO
+		    ,ADDR
+		    ,ETC
+		    ,REG_DT
+		FROM PATNT_INFO
+		WHERE 1=1
+			<if test="patntNo != null">AND PATNT_NO = #{patntNo}</if>
+			<if test="patntNm != null">AND PATNT_NM LIKE '%' || #{patntNm} || '%'</if>
+			<if test="idType != null">AND ID_TYPE = #{idType}</if>
+			<if test="idNo != null">AND ID_NO = #{idNo}</if>
+			<if test="brthdy != null">AND BRTHDY = #{brthdy}</if>
+			<if test="sex != null">AND SEX = #{sex}</if>
+			<if test="delYn != null">AND DEL_YN = #{delYn}</if>
+			<if test="telNo != null">AND TEL_NO = #{telNo}</if>
+			<if test="addr != null">AND ADDR LIKE '%'|| #{addr} ||'%'</if>
+			<if test="etc != null">AND ETC LIKE '%'|| #{etc} ||'%'</if>
+		ORDER BY PATNT_NM, BRTHDY DESC
+	</select>
+	
+	<insert id="insert" parameterType="patntInfo">
+		INSERT INTO PATNT_INFO (
+			PATNT_NO
+		    ,PATNT_NM
+		    ,ID_TYPE
+		    ,ID_NO
+		    ,BRTHDY
+		    ,SEX
+		    ,TEL_NO
+		    ,ADDR
+		    ,ETC
+		)
+		VALUES (
+			NEXT VALUE FOR PATNT_INFO_SEQ
+		    ,#{patntNm}
+		    ,#{idType}
+		    ,#{idNo}
+		    ,#{brthdy}
+		    ,#{sex}
+		    ,#{telNo}
+		    ,#{addr}
+		    ,#{etc}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="patntInfo">
+		UPDATE PATNT_INFO SET
+			PATNT_NO = #{patntNo}
+			<if test="patntNm != null">,PATNT_NM = #{patntNm}</if>
+			<if test="idType != null">,ID_TYPE = #{idType}</if>
+			<if test="idNo != null">,ID_NO = #{idNo}</if>
+			<if test="brthdy != null">,BRTHDY = #{brthdy}</if>
+			<if test="sex != null">,SEX = #{sex}</if>
+			<if test="telNo != null">,TEL_NO = #{telNo}</if>
+			<if test="addr != null">,ADDR = #{addr}</if>
+		WHERE 1=1
+			AND PATNT_NO = #{patntNo}
+	</update>
+</mapper>

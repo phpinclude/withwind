@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slm_regist xsi:schemaLocation="https://www.nims.or.kr/schema/nims https://www.nims.or.kr/resources/nims.xsd" xmlns="https://www.nims.or.kr/schema/nims" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <REPORT_SET>
+        <UID><![CDATA[53d60c5e9233508f59a371c05f9098636c2a5c3f5d69e190c81ce483cb4bd51d]]></UID>
+        <HEADER>
+            <HDR_DE><![CDATA[20180530]]></HDR_DE>
+            <BSSH_CD><![CDATA[TSTNIMSW1]]></BSSH_CD>
+            <RPT_SE_CD><![CDATA[SLM]]></RPT_SE_CD>
+            <USR_RPT_ID_NO><![CDATA[SLM1527674944989]]></USR_RPT_ID_NO>
+            <REF_USR_RPT_ID_NO></REF_USR_RPT_ID_NO>
+            <RPT_TY_CD><![CDATA[0]]></RPT_TY_CD>
+            <RMK></RMK>
+            <RPTR_NM><![CDATA[홍길동]]></RPTR_NM>
+            <RPTR_ENTRPS_NM><![CDATA[NIMS테스트도매]]></RPTR_ENTRPS_NM>
+            <CHRG_NM><![CDATA[홍길동]]></CHRG_NM>
+            <CHRG_TEL_NO><![CDATA[070-7463-3050]]></CHRG_TEL_NO>
+            <CHRG_MP_NO><![CDATA[26e5c834ee83d7c2b6684a0dd76c0b137609e7fbf401538ef49af39e5d68cb2b6e27e11d58966c6eebbcf9afef5cde008518432584198c96e5256fbefd2038976f776edbc9d5907b173d0654e45b2712fff7a1e79f1f47c42ee7f95e5ed259791fdcda5481fdd2f526935408879a53ffe1857a6f97dba52cf11c27e4168b858cc4433da471a3050479e8de73408e779d7d517d333c79fd791086e43da74363a9667b7a9f887698385f9436683fcbee58a927de2d58b99cce5aa70543cedc44598142acba80278a3d72f995f67c6d11eac02114902aa25b7c07658e7c2b7c92fb9fae5a008abb6abee518a2aa3ba715c525d4efafaa505a2e0762ab05f0553e04]]></CHRG_MP_NO>
+            <RND_DTL_RPT_CNT><![CDATA[0]]></RND_DTL_RPT_CNT>
+            <OPP_BSSH_NM></OPP_BSSH_NM>
+            <OPP_BSSH_CD></OPP_BSSH_CD>
+            <OPP_STORGE_NO></OPP_STORGE_NO>
+            <ATCH_FILE_CO><![CDATA[0]]></ATCH_FILE_CO>
+            <REGISTER_ID><![CDATA[tstnimsw1]]></REGISTER_ID>
+            <FILE_CREAT_DT><![CDATA[20180530190904]]></FILE_CREAT_DT>
+            <LINES/>
+        </HEADER>
+    </REPORT_SET>
+</slm_regist>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Mapper.SysCode">
+	<update id="create">
+		CREATE TABLE SYS_CODE
+		(
+		    P_CODE VARCHAR(100) NOT NULL,
+		    CODE VARCHAR(20) NOT NULL,
+		    CODE_TYPE VARCHAR(50) NOT NULL,
+		    CODE_NM VARCHAR(200),
+		    ORD_NO INTEGER,
+		    USE_YN CHAR(1) NOT NULL DEFAULT 'Y',
+		    VIEW_YN CHAR(1) NOT NULL DEFAULT 'Y',
+		    CODE_DESC VARCHAR(1000),
+		    PRIMARY KEY (P_CODE,CODE)
+		)
+	</update>
+	<select id="selectAll" resultType="commonCode">
+		SELECT 
+			P_CODE
+			,CODE
+			,CODE_TYPE
+			,CODE_NM
+			,ORD_NO
+			,USE_YN
+			,VIEW_YN
+			,CODE_DESC
+		FROM SYS_CODE
+		ORDER BY P_CODE, ORD_NO
+	</select>
+	
+	<insert id="insert" parameterType="commonCode">
+		INSERT INTO SYS_CODE (P_CODE,CODE,CODE_TYPE,CODE_NM,ORD_NO,USE_YN,VIEW_YN,CODE_DESC)
+		VALUES (
+			#{pCode}
+			,#{code}
+			,#{codeType}
+			,#{codeNm}
+			,#{ordNo}
+			,#{useYn}
+			,#{viewYn}
+			,#{codeDesc}
+		)
+	</insert>
+	
+	<update id="update" parameterType="commonCode">
+		UPDATE SYS_CODE SET
+			CODE_TYPE = #{codeType}
+			,CODE_NM = #{codeNm}
+			,ORD_NO = #{ordNo}
+			,USE_YN =#{useYn}
+			,VIEW_YN =#{viewYn}
+			,CODE_DESC =#{codeDesc}
+		WHERE 1=1
+			AND P_CODE = #{pCode}
+			AND CODE = #{code}
+	</update>
+	
+	<delete id="delete" parameterType="commonCode">
+		DELETE FROM SYS_CODE 
+		WHERE 1=1
+			AND P_CODE = #{pCode}
+			AND CODE = #{code}
+	</delete>
+</mapper>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN" "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+
+	<settings>
+		<setting name="logImpl" value="LOG4J2"/>
+		<setting name="mapUnderscoreToCamelCase" value="true" />
+		<setting name="jdbcTypeForNull" value="VARCHAR" />
+	</settings>
+	
+	<typeAliases>
+		<package name="kr.pe.withwind.nims.domain"/>
+		<package name="kr.pe.withwind.nims.domain.openapi"/>
+	</typeAliases>
+	
+	<plugins>
+		<plugin interceptor="kr.pe.withwind.interceptor.MybatisInterCeptor">
+		</plugin>
+	</plugins>
+	
+	<environments default="develop">
+		<environment id="develop">
+			<transactionManager type="JDBC" />
+			<dataSource type="POOLED">
+				
+<!-- 				<property name="driver" value="org.apache.derby.jdbc.EmbeddedDriver"/> -->
+<!-- 				<property name="url" value="jdbc:derby:nimsDB;create=true"/> -->
+				
+				<property name="driver" value="net.sf.log4jdbc.DriverSpy"/>
+				<property name="url" value="jdbc:log4jdbc:derby://localhost:1527/C:/dev/nimsDB"/>
+				
+			</dataSource>
+		</environment>
+	</environments>
+	
+
+	<mappers>
+<!-- 		인터페이스 사용할때 -->
+<!-- 		<package name="kr.pe.withwind.nims.mapper" /> -->
+		<mapper resource="kr/pe/withwind/nims/mapper/XlsMapping.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/SysCode.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/ProductInfo.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/BsshSetting.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/BsshList.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/PrevInfo.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/RptList.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/StockInfo.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/DissCode.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/PatntInfo.xml"/>
+		<mapper resource="kr/pe/withwind/nims/mapper/IncomByPurchase.xml"/>
+	</mappers>	
+	
+</configuration>

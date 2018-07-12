@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.popup.PurchaseSearchController">
+   <children>
+      <HBox fx:id="hbHeader" alignment="CENTER_LEFT" layoutY="7.0" prefHeight="23.0" prefWidth="662.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="122.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label text="취급일자">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <DatePicker fx:id="dpStd" prefHeight="23.0" prefWidth="118.0">
+               <HBox.margin>
+                  <Insets right="15.0" />
+               </HBox.margin>
+            </DatePicker>
+            <Label text="상대업체식별코드">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <AnchorPane fx:id="apCustom" prefHeight="23.0" prefWidth="199.0">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin></AnchorPane>
+            <Label text="기보고포함">
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Label>
+            <ComboBox fx:id="cbContainYn" prefHeight="23.0" prefWidth="81.0" />
+         </children>
+      </HBox>
+      <Button fx:id="btSearch" layoutX="731.0" layoutY="16.0" mnemonicParsing="false" text="대상정보 찾기" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="14.0" />
+      <Separator layoutX="14.0" layoutY="53.0" prefHeight="0.0" prefWidth="770.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="50.0" />
+      <Button fx:id="btClose" disable="true" layoutX="626.0" layoutY="61.0" mnemonicParsing="false" text="선택한 업체 보고내역으로 등록" AnchorPane.rightAnchor="16.0" AnchorPane.topAnchor="61.0" />
+      <Label fx:id="lbSelectRow" alignment="TOP_RIGHT" layoutX="555.0" layoutY="65.0" prefHeight="15.0" prefWidth="573.0" textAlignment="RIGHT" AnchorPane.rightAnchor="214.0" AnchorPane.topAnchor="65.0" />
+      <TableView fx:id="mainTable" layoutX="14.0" layoutY="93.0" prefHeight="467.0" prefWidth="780.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="93.0" />
+      <Separator layoutX="14.0" layoutY="560.0" prefHeight="9.0" prefWidth="772.0" AnchorPane.bottomAnchor="25.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+      <ProgressBar fx:id="pgBar" layoutX="14.0" layoutY="568.0" prefHeight="18.0" prefWidth="772.0" progress="0.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" />
+   </children>
+</AnchorPane>

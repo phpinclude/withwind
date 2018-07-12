@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="800.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.popup.ProductSearchController">
+   <children>
+      <Label layoutX="14.0" layoutY="22.0" text="제품명" />
+      <TextField fx:id="tfProductNm" layoutX="66.0" layoutY="18.0" />
+      <Label layoutX="227.0" layoutY="22.0" text="제품코드" />
+      <TextField fx:id="tfProductCd" layoutX="292.0" layoutY="18.0" />
+      <Button fx:id="btSearch" layoutX="746.0" layoutY="18.0" mnemonicParsing="false" text="찾기" />
+      <Separator layoutX="14.0" layoutY="53.0" prefHeight="0.0" prefWidth="762.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="53.0" />
+      <TableView fx:id="mainTable" layoutX="14.0" layoutY="64.0" prefHeight="374.0" prefWidth="772.0" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="64.0" />
+      <Separator layoutX="14.0" layoutY="448.0" prefWidth="200.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <ProgressBar fx:id="pgBar" layoutX="14.0" layoutY="457.0" prefWidth="200.0" progress="0.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" />
+      <CheckBox fx:id="chkZero" layoutX="454.0" layoutY="22.0" mnemonicParsing="false" selected="true" text="재고있음" />
+   </children>
+</AnchorPane>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PrevInfo">
+	<select id="selectAll" resultType="prevInfo">
+		SELECT 
+			INFO_TYPE
+			,INFO_VALUE
+		FROM PREV_INFO
+	</select>
+	
+	<select id="selectByPk" parameterType="String" resultType="prevInfo">
+		SELECT 
+			INFO_TYPE
+			,INFO_VALUE
+		FROM PREV_INFO
+		WHERE 
+			INFO_TYPE = #{infoType}
+	</select>
+	
+	<insert id="insert" parameterType="prevInfo">
+		INSERT INTO PREV_INFO (
+			INFO_TYPE
+			,INFO_VALUE
+		)
+		VALUES (
+			#{infoType}
+			,#{infoValue}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="prevInfo">
+		UPDATE PREV_INFO SET
+			INFO_VALUE = #{infoValue}
+		WHERE 1=1
+			AND INFO_TYPE = #{infoType}
+	</update>
+</mapper>

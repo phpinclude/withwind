@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Tue Jun 12 13:50:00 KST 2018:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0163-f254-4a84-000005f57500 
+on database directory C:\dev\workspace_oxygen\withwind_nims\target\jfx\app\nimsDB with class loader sun.misc.Launcher$AppClassLoader@3d4eac69 
+Loaded from file:/C:/dev/workspace_oxygen/withwind_nims/target/jfx/app/lib/derby-10.14.2.0.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_161-b12
+user.dir=C:\dev\workspace_oxygen\withwind_nims\target\jfx\app
+os.name=Windows 7
+os.arch=amd64
+os.version=6.1
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''

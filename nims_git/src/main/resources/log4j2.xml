@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+	</Appenders>
+
+	<!-- Query Loggers -->
+	<Loggers>
+
+		<Logger name="org.eclipse" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+<!-- 		<Logger name="org.apache" level="warn" additivity="false"> -->
+<!-- 			<AppenderRef ref="Console" /> -->
+<!-- 		</Logger> -->
+
+<!-- 		<Logger name="jdbc" level="error" additivity="false"> -->
+<!-- 			<AppenderRef ref="Console" /> -->
+<!-- 		</Logger> -->
+
+		<Logger name="jdbc.resultsettable" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Logger name="jdbc.sqlonly" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<Logger name="Mapper" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<Logger name="kr.pe.withwind" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+		
+		<Logger name="org.springframework" level="debug" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Logger name="kr.pe.withwind.interceptor.MybatisInterCeptor" level="warn" additivity="false">
+			<AppenderRef ref="Console" />
+		</Logger>
+
+		<Root level="warn">
+			<AppenderRef ref="Console" />
+		</Root>
+	</Loggers>
+</Configuration>

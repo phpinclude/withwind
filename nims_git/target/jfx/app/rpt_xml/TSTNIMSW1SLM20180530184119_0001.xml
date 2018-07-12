@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<slm_regist xsi:schemaLocation="https://www.nims.or.kr/schema/nims https://www.nims.or.kr/resources/nims.xsd" xmlns="https://www.nims.or.kr/schema/nims" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <REPORT_SET>
+        <UID><![CDATA[53d60c5e9233508f59a371c05f9098636c2a5c3f5d69e190c81ce483cb4bd51d]]></UID>
+        <HEADER>
+            <HDR_DE><![CDATA[20180530]]></HDR_DE>
+            <BSSH_CD><![CDATA[TSTNIMSW1]]></BSSH_CD>
+            <RPT_SE_CD><![CDATA[SLM]]></RPT_SE_CD>
+            <USR_RPT_ID_NO><![CDATA[SLM1527673276978]]></USR_RPT_ID_NO>
+            <REF_USR_RPT_ID_NO></REF_USR_RPT_ID_NO>
+            <RPT_TY_CD><![CDATA[0]]></RPT_TY_CD>
+            <RMK></RMK>
+            <RPTR_NM><![CDATA[홍길동]]></RPTR_NM>
+            <RPTR_ENTRPS_NM><![CDATA[NIMS테스트도매]]></RPTR_ENTRPS_NM>
+            <CHRG_NM><![CDATA[홍길동]]></CHRG_NM>
+            <CHRG_TEL_NO><![CDATA[070-7463-3050]]></CHRG_TEL_NO>
+            <CHRG_MP_NO><![CDATA[185c4ad115b0d652a4a5b9b1d08c9fb00762f8ed3d97583eed7b3c972359f8e7a9955e42301fe9f0897bfa97df6db367f41cece989ee0b2750929101848614104f86059473d19c125f23358b43133101fbfd5a3bbffdc3183cf6b0c83981eef85fc422ce1f6ae07dcb0de8925ed34a1b417885b2c1f19d68d6cb29d38a67d7ad146e85162b56ae162fc1c1d2b6a40349d346e0cc014664d1eb20c0abe516acb6ae1d7f1929b9363dd15bded3439f92b33f3ecd6f95c5a118b14c314d62fe4c23991a0516e4290bd76399b11f2f458a32a8d4f5212088ab4a54b613d1bb08949a442db5a1f51a8d3476b8d914bc96fe494a85883259b1e48a5e2b4106bf94e08c]]></CHRG_MP_NO>
+            <RND_DTL_RPT_CNT><![CDATA[1]]></RND_DTL_RPT_CNT>
+            <OPP_BSSH_NM></OPP_BSSH_NM>
+            <OPP_BSSH_CD></OPP_BSSH_CD>
+            <OPP_STORGE_NO></OPP_STORGE_NO>
+            <ATCH_FILE_CO><![CDATA[0]]></ATCH_FILE_CO>
+            <REGISTER_ID><![CDATA[tstnimsw1]]></REGISTER_ID>
+            <FILE_CREAT_DT><![CDATA[20180530184116]]></FILE_CREAT_DT>
+            <LINES>
+                <LINE>
+                    <USR_RPT_ID_NO><![CDATA[SLM1527673276978]]></USR_RPT_ID_NO>
+                    <USR_RPT_LN_ID_NO><![CDATA[SLM1527673276978-00001]]></USR_RPT_LN_ID_NO>
+                    <STORGE_NO><![CDATA[S0001]]></STORGE_NO>
+                    <MVMN_TY_CD><![CDATA[0102]]></MVMN_TY_CD>
+                    <PRDUCT_CD><![CDATA[8806519006456]]></PRDUCT_CD>
+                    <MNF_NO><![CDATA[MM578900]]></MNF_NO>
+                    <MNF_SEQ><![CDATA[250002]]></MNF_SEQ>
+                    <MIN_DISTB_QY><![CDATA[1]]></MIN_DISTB_QY>
+                    <PRD_MIN_DISTB_UNIT><![CDATA[병]]></PRD_MIN_DISTB_UNIT>
+                    <PCE_QY><![CDATA[0]]></PCE_QY>
+                    <PRD_PCE_UNIT><![CDATA[정]]></PRD_PCE_UNIT>
+                    <PRDUCT_NM><![CDATA[명인브로마제팜정3밀리그램(수출용) (3㎎)]]></PRDUCT_NM>
+                    <PRD_SGTIN></PRD_SGTIN>
+                    <PRD_MIN_DISTB_QY><![CDATA[1]]></PRD_MIN_DISTB_QY>
+                    <PRD_TOT_PCE_QY><![CDATA[500]]></PRD_TOT_PCE_QY>
+                    <PRD_VALID_DE><![CDATA[20200430]]></PRD_VALID_DE>
+                    <FILE_CREAT_DT><![CDATA[20180530184116]]></FILE_CREAT_DT>
+                </LINE>
+            </LINES>
+        </HEADER>
+    </REPORT_SET>
+</slm_regist>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="IncomByPurchase">
+	<update id="create">
+		CREATE TABLE INCOM_BY_PURCHASE
+		(
+		    BSSH_CD VARCHAR(15) NOT NULL
+		    ,USR_RPT_ID_NO VARCHAR(50) NOT NULL
+		    ,STD_DE VARCHAR(8) NOT NULL
+		    ,REG_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL
+		    ,PRIMARY KEY(BSSH_CD, USR_RPT_ID_NO)
+		)
+	</update>
+	<select id="selectAll" resultType="incomByPurchase">
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,STD_DE
+		    ,REG_DT
+		FROM INCOM_BY_PURCHASE
+		ORDER BY REG_DT DESC
+	</select>
+	
+	<select id="selectByPk" parameterType="incomByPurchase" resultType="incomByPurchase">
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,STD_DE
+		    ,REG_DT
+		FROM INCOM_BY_PURCHASE
+		WHERE 1=1
+			AND BSSH_CD = #{bsshCd}
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+	</select>
+	
+	<select id="selectByParam" parameterType="incomByPurchase" resultType="incomByPurchase">
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,STD_DE
+		    ,REG_DT
+		FROM INCOM_BY_PURCHASE
+		WHERE 1=1
+			<if test="bsshCd != null">AND BSSH_CD = #{bsshCd}</if>
+			<if test="usrRptIdNo != null">AND USR_RPT_ID_NO = #{usrRptIdNo}</if>
+			<if test="stdDe != null">AND STD_DE = #{stdDe}</if>
+		ORDER BY REG_DT DESC
+	</select>
+	
+	<select id="selectByStdDe" parameterType="incomByPurchase" resultType="incomByPurchase">
+		<![CDATA[
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,STD_DE
+		    ,REG_DT
+		FROM INCOM_BY_PURCHASE
+		WHERE 1=1
+			AND STD_DE >= #{stdDe}
+		ORDER BY REG_DT DESC
+		]]>
+	</select>
+	
+	<insert id="insert" parameterType="incomByPurchase">
+		INSERT INTO INCOM_BY_PURCHASE (
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,STD_DE
+		)
+		VALUES (
+			#{bsshCd}
+			,#{usrRptIdNo}
+			,#{stdDe}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="incomByPurchase">
+		UPDATE INCOM_BY_PURCHASE SET
+			BSSH_CD = #{bsshCd}
+			<if test="stdDe != null">,STD_DE = #{stdDe}</if>
+			,REG_DT = CURRENT_TIMESTAMP
+		WHERE 1=1
+			AND BSSH_CD = #{bsshCd}
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+	</update>
+	
+	<delete id="deleteByPk" parameterType="incomByPurchase">
+		DELETE FROM INCOM_BY_PURCHASE 
+		WHERE 1=1
+			AND BSSH_CD = #{bsshCd}
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+	</delete>
+</mapper>

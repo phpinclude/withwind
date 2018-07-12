@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="BsshInfo">
+	<select id="selectAll" resultType="bsshInfo">
+		SELECT 
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+		FROM BSSH_INFO
+	</select>
+	
+	<select id="selectByPk" parameterType="String" resultType="bsshInfo">
+		SELECT 
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+		FROM BSSH_INFO
+		WHERE 
+			INF_TYPE = #{infType}
+	</select>
+	
+	<insert id="insert" parameterType="bsshInfo">
+		INSERT INTO BSSH_INFO (
+			INF_TYPE
+			,BSSH_CD
+			,AUTH_KEY
+			,RPTR_NM
+			,RPTR_ENTRPS_NM
+			,PUBLIC_KEY
+		)
+		VALUES (
+			#{infType}
+			,#{bsshCd}
+			,#{authKey}
+			,#{rptrNm}
+			,#{rptrEntrpsNm}
+			,#{publicKey}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="bsshInfo">
+		UPDATE BSSH_INFO SET
+			INF_TYPE = #{infType}
+			<if test="bsshCd != null">,BSSH_CD = #{bsshCd}</if>
+			<if test="authKey != null">,AUTH_KEY = #{authKey}</if>
+			<if test="rptrNm != null">,RPTR_NM = #{rptrNm}</if>
+			<if test="rptrEntrpsNm != null">,RPTR_ENTRPS_NM = #{rptrEntrpsNm}</if>
+			<if test="publicKey != null">,PUBLIC_KEY = #{publicKey}</if>
+		WHERE 1=1
+			AND INF_TYPE = #{infType}
+	</update>
+</mapper>

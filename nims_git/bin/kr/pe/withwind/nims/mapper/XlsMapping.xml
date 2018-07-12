@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="XlsMapping">
+	<select id="getXlsMapping" resultType="xlsMapping">
+		SELECT * FROM XLS_MAPPING
+		ORDER BY RPT_TYPE, HL_TYPE, COL_IDX
+	</select>
+	
+	<select id="selectByRptType" resultType="xlsMapping" parameterType="String">
+		SELECT * FROM XLS_MAPPING
+		WHERE RPT_TYPE = #{rptType}
+		ORDER BY RPT_TYPE, HL_TYPE, COL_IDX
+	</select>
+	
+	<update id="updateXlsMapping" parameterType="xlsMapping">
+		UPDATE XLS_MAPPING SET
+			XLS_LABEL = #{xlsLabel}
+			,COL_IDX = #{colIdx}
+			,VIEW_YN = #{viewYn}
+			,REF_TYPE = #{refType}
+			,REF_DEFAULT = #{refDefault}
+		WHERE RPT_TYPE = #{rptType}
+			AND FIELD_NM = #{fieldNm}
+			AND HL_TYPE = #{hlType}
+	</update>
+	
+	<insert id="insertXlsMapping" parameterType="xlsMapping">
+		INSERT INTO XLS_MAPPING (
+			RPT_TYPE, FIELD_NM, HL_TYPE, XLS_LABEL ,COL_IDX ,VIEW_YN ,REF_TYPE ,REF_DEFAULT
+		) VALUES (
+			#{rptType}, #{fieldNm}, #{hlType}, #{xlsLabel}, #{colIdx}, #{viewYn}, #{refType}, #{refDefault}
+		)
+			
+	</insert>
+	
+	<delete id="deleteXlsMapping" parameterType="xlsMapping">
+		DELETE FROM XLS_MAPPING
+		WHERE RPT_TYPE = #{rptType}
+			AND FIELD_NM = #{fieldNm}
+			AND HL_TYPE = #{hlType}
+	</delete>
+	
+	<insert id="copyXlsMapping" parameterType="map">
+		INSERT INTO XLS_MAPPING (
+			RPT_TYPE, FIELD_NM, HL_TYPE, XLS_LABEL ,COL_IDX ,VIEW_YN ,REF_TYPE ,REF_DEFAULT
+		)
+		
+		SELECT #{target}, FIELD_NM, HL_TYPE, XLS_LABEL ,COL_IDX ,VIEW_YN ,REF_TYPE ,REF_DEFAULT
+		FROM XLS_MAPPING WHERE RPT_TYPE=#{source}
+	</insert>
+</mapper>

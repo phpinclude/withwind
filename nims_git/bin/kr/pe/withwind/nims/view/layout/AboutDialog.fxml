@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label layoutX="45.0" layoutY="35.0" style="-fx-font-size: 20;" text="마약류 통합관리시스템 연계 클라이언트 프로그램" />
+      <Label layoutX="45.0" layoutY="129.0" text="개발자 : 박승모" />
+      <Label layoutX="45.0" layoutY="161.0" text="E-mail : phpinclude@naver.com" />
+      <Label layoutX="45.0" layoutY="194.0" text="마약류통합관리시스템 홈페이지 : https://www.nims.or.kr" />
+   </children>
+</AnchorPane>

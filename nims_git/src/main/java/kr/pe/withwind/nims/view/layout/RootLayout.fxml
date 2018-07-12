@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.layout.RootLayoutController">
+   <top>
+      <MenuBar prefHeight="0.0" prefWidth="1024.0" BorderPane.alignment="CENTER">
+        <menus>
+	        <Menu mnemonicParsing="false" text="환경셋팅">
+	            <items>
+	                  <MenuItem fx:id="mShowRoot" mnemonicParsing="false" onAction="#handleMenuEvent" text="HOME" />
+	                  <MenuItem fx:id="mPreference" mnemonicParsing="false" onAction="#handleMenuEvent" text="환경셋팅" />
+	              <MenuItem fx:id="mExlMap" mnemonicParsing="false" onAction="#handleMenuEvent" text="엑셀맵핑" />
+	                  <MenuItem fx:id="mSysSetting" mnemonicParsing="false" onAction="#handleMenuEvent" text="공통코드" />
+	            </items>
+	          </Menu>
+            <Menu mnemonicParsing="false" text="Open Api">
+               <items>
+                  <MenuItem fx:id="mProductCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="품목정보" />
+                  <MenuItem fx:id="mBsshCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="마약류취급자정보" />
+                  <MenuItem fx:id="mPlaceCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="저장소정보" />
+                  <MenuItem fx:id="mStockCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="재고정보" />
+                  <MenuItem fx:id="mPurchaseCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="구입대상정보" />
+                  <MenuItem fx:id="mAcceptCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="양수대상정보" />
+                  <MenuItem fx:id="mSeqCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="일련번호정보" />
+                  <MenuItem fx:id="mOfficeCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="관할허가관청정보" />
+                  <MenuItem fx:id="mDestpCall" mnemonicParsing="false" onAction="#handleMenuEvent" text="상대업체구입정보" />
+               </items>
+            </Menu>
+          <Menu mnemonicParsing="false" text="엑셀,XML">
+            <items>
+              <MenuItem fx:id="mExlDown" mnemonicParsing="false" onAction="#handleMenuEvent" text="엑셀양식다운로드" />
+                  <MenuItem fx:id="mExlToXML" mnemonicParsing="false" onAction="#handleMenuEvent" text="엑셀 to XML" />
+                  <MenuItem fx:id="mCsvToXML" mnemonicParsing="false" onAction="#handleMenuEvent" text="CSV to XML" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="보고관리">
+            <items>
+              <MenuItem fx:id="mRptSlm" mnemonicParsing="false" onAction="#handleMenuEvent" text="판매보고" />
+                <MenuItem fx:id="mRptPcm" mnemonicParsing="false" onAction="#handleMenuEvent" text="구입보고" />
+                <MenuItem fx:id="mRptPmm" mnemonicParsing="false" onAction="#handleMenuEvent" text="조제보고" />
+                <MenuItem fx:id="mRptMcm" mnemonicParsing="false" onAction="#handleMenuEvent" text="투약보고" />
+                <MenuItem fx:id="mRptAar" mnemonicParsing="false" onAction="#handleMenuEvent" text="폐기보고" />
+                <MenuItem fx:id="mRptSmm" mnemonicParsing="false" onAction="#handleMenuEvent" text="저장소이동처리" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="mAboutDialog" mnemonicParsing="false" onAction="#handleMenuEvent" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </top>
+   <center>
+      <AnchorPane prefHeight="500.0" prefWidth="500.0" style="-fx-background-color: FFFFFF;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

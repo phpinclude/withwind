@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RptInfo">
+	<update id="create">
+		CREATE TABLE RPT_LIST
+		(
+		    BSSH_CD VARCHAR(15) NOT NULL,
+		    RPT_SE_CD VARCHAR(10),
+		    USR_RPT_ID_NO VARCHAR(50) NOT NULL,
+		    RESULT_CD VARCHAR(10) NOT NULL,
+		    RESULT_MSG VARCHAR(2000),
+		    RPT_RCEPT_NO VARCHAR(50),
+		    RPT_FILE_NAME VARCHAR(50),
+		    REG_DT TIMESTAMP DEFAULT CURRENT_TIMESTAMP NOT NULL,
+		    PRIMARY KEY (BSSH_CD,USR_RPT_ID_NO)
+		)
+	</update>
+	
+	<select id="getRptList" parameterType="uploadResult" resultType="uploadResult">
+		SELECT 
+			RL.BSSH_CD
+			,RL.USR_RPT_ID_NO
+			,RL.RESULT_CD
+			,RL.RESULT_MSG
+			,RL.RPT_RCEPT_NO
+			,RL.RPT_FILE_NAME
+			,RL.RPT_SE_CD
+			,RL.REG_DT
+			,RL.RPT_TY_CD
+			,RL.STATUS
+			,COALESCE (T2.CODE_NM,'모름') AS STATUS_NM
+			,COALESCE (T1.CODE_NM,'모름') AS RPT_TY_CD_NM
+			,COALESCE (T3.CODE_NM,'모름') AS RPT_SE_CD_NM
+		FROM RPT_LIST AS RL
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_TY_CD') AS T1 ON RL.RPT_TY_CD = T1.CODE
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_STATUS') AS T2 ON RL.STATUS = T2.CODE
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_TYPE') AS T3 ON RL.RPT_SE_CD = T3.CODE
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+		<if test="rptSeCd != null">
+			AND RPT_SE_CD = #{rptSeCd}
+		</if>
+		<if test="rptTyCd != null">
+			AND RPT_TY_CD = #{rptTyCd}
+		</if>
+		<if test="rptFileName != null">
+			AND RPT_FILE_NAME = #{rptFileName}
+		</if>
+		<if test="resultCd != null">
+			AND RESULT_CD = #{resultCd}
+		</if>
+		<if test="searchSt != null">
+			<![CDATA[AND REG_DT >= #{searchSt}]]>
+		</if>
+		<if test="searchEn != null">
+			<![CDATA[AND REG_DT <= #{searchEn}]]>
+		</if>
+		<if test="status != null">
+			<![CDATA[STATUS = #{status}]]>
+		</if>
+		
+		ORDER BY REG_DT DESC
+		
+	</select>
+	
+	<select id="getRptByPk" parameterType="uploadResult" resultType="uploadResult">
+		SELECT 
+			RL.BSSH_CD
+			,RL.USR_RPT_ID_NO
+			,RL.RESULT_CD
+			,RL.RESULT_MSG
+			,RL.RPT_RCEPT_NO
+			,RL.RPT_FILE_NAME
+			,RL.RPT_SE_CD
+			,RL.REG_DT
+			,RL.RPT_TY_CD
+			,RL.STATUS
+			,COALESCE (T2.CODE_NM,'모름') AS STATUS_NM
+			,COALESCE (T1.CODE_NM,'모름') AS RPT_TY_CD_NM
+			,COALESCE (T3.CODE_NM,'모름') AS RPT_SE_CD_NM
+			FROM RPT_LIST AS RL
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_TY_CD') AS T1 ON RL.RPT_TY_CD = T1.CODE
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_STATUS') AS T2 ON RL.STATUS = T2.CODE
+			LEFT OUTER JOIN (SELECT CODE, CODE_NM FROM SYS_CODE WHERE P_CODE='RPT_TYPE') AS T3 ON RL.RPT_SE_CD = T3.CODE
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+	</select>
+	
+	<select id="getRptErrList" parameterType="resultErrInfo" resultType="resultErrInfo">
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,IDX
+		    ,ERROR_CD
+		    ,ERROR_MSG
+		FROM RPT_ERR_INFO
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+		ORDER BY IDX
+	</select>
+	
+	<insert id="insertRptInfo" parameterType="uploadResult">
+		INSERT INTO RPT_LIST (
+			BSSH_CD
+			,RPT_SE_CD
+		    ,USR_RPT_ID_NO
+		    ,RESULT_CD
+		    ,RESULT_MSG
+		    ,RPT_RCEPT_NO
+		    ,RPT_FILE_NAME
+		    ,RPT_TY_CD
+		    ,STATUS
+		)
+		VALUES (
+			#{bsshCd}
+			,#{rptSeCd}
+		    ,#{usrRptIdNo}
+		    ,#{resultCd}
+		    ,#{resultMsg}
+		    ,#{rptRceptNo}
+		    ,#{rptFileName}
+		    ,#{rptTyCd}
+		    ,#{status}
+		)
+	</insert>
+	
+	<insert id="insertRptErrInfo" parameterType="resultErrInfo">
+		INSERT INTO RPT_ERR_INFO (
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,IDX
+		    ,ERROR_CD
+		    ,ERROR_MSG
+		)
+		VALUES (
+			#{bsshCd}
+			,#{usrRptIdNo}
+		    ,#{idx}
+		    ,#{errorCd}
+		    ,#{errorMsg}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="uploadResult">
+		UPDATE RPT_LIST SET
+			BSSH_CD = #{bsshCd}
+			<if test="rptSeCd != null">,RPT_SE_CD = #{rptSeCd}</if>
+			<if test="resultCd != null">,RESULT_CD = #{resultCd}</if>
+			<if test="resultMsg != null">,RESULT_MSG = #{resultMsg}</if>
+			<if test="rptRceptNo != null">,RPT_RCEPT_NO = #{rptRceptNo}</if>
+			<if test="rptFileName != null">,RPT_FILE_NAME = #{rptFileName}</if>
+			<if test="rptTyCd != null">,RPT_TY_CD = #{rptTyCd}</if>
+			<if test="status != null">,STATUS = #{status}</if>
+		WHERE
+			 BSSH_CD = #{bsshCd}
+			 AND USR_RPT_ID_NO = #{usrRptIdNo}
+	</update>
+	
+</mapper>

@@ -1,0 +1,1 @@
+java -Dfile.encoding=utf-8 -Dencoding=utf-8 -jar nims.jar

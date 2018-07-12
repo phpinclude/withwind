@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<AnchorPane prefHeight="338.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.layout.ExlEditDialogController">
+   <children>
+      <GridPane layoutX="14.0" layoutY="14.0" prefHeight="274.0" prefWidth="576.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="283.0" minWidth="10.0" prefWidth="180.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="426.0" minWidth="10.0" prefWidth="396.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Label text="RPT_TYPE(보고유형)" />
+            <Label layoutX="10.0" layoutY="20.0" text="FIELD_NAME(필드명)" GridPane.rowIndex="1" />
+            <Label layoutX="10.0" layoutY="55.0" text="HL_TYPE(헤더/라인유형)" GridPane.rowIndex="2" />
+            <Label layoutX="10.0" layoutY="90.0" text="REF_TYPE(참조유형)" GridPane.rowIndex="6" />
+            <Label layoutX="10.0" layoutY="20.0" text="VIEW_YN(액셀 보이기유무)" GridPane.rowIndex="5" />
+            <Label layoutX="10.0" layoutY="20.0" text="COL_IDX(액셀 컬럼순서" GridPane.rowIndex="4" />
+            <Label layoutX="10.0" layoutY="20.0" text="XLS_LABEL(액셀파일 필드명)" GridPane.rowIndex="3" />
+            <Label text="REG_DEFAULT(기본값)" GridPane.rowIndex="7" />
+            <ComboBox fx:id="rptTypeCb" GridPane.columnIndex="1" />
+            <ComboBox fx:id="fieldNmCb" layoutX="190.0" layoutY="16.0" onAction="#handleFieldNmChange" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+            <ComboBox fx:id="hlTypeCb" layoutX="190.0" layoutY="51.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+            <TextField editable="false" GridPane.columnIndex="1" GridPane.rowIndex="3" fx:id="xlsLabelField" />
+            <TextField fx:id="colIdxField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+            <ComboBox fx:id="viewYnCb" layoutX="190.0" layoutY="86.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+            <FlowPane prefHeight="200.0" prefWidth="200.0" style="-fx-alignment: CENTER-LEFT;" GridPane.columnIndex="1" GridPane.rowIndex="6">
+               <children>
+                  <ComboBox fx:id="refTypeCb" onAction="#handleRefType" prefWidth="150.0" />
+                  <Button mnemonicParsing="false" onAction="#handleConfirm" prefHeight="23.0" prefWidth="63.0" text="검증">
+                     <FlowPane.margin>
+                        <Insets left="20.0" />
+                     </FlowPane.margin>
+                  </Button>
+               </children>
+            </FlowPane>
+            <TextField fx:id="refDefaultField" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+            <ComboBox fx:id="refDefaultCb" prefHeight="23.0" prefWidth="405.0" visible="false" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+         </children>
+      </GridPane>
+      <Button layoutX="449.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleOk" prefWidth="60.0" text="OK" />
+      <Button layoutX="526.0" layoutY="301.0" mnemonicParsing="false" onAction="#handleCancel" prefWidth="60.0" text="Cancel" />
+   </children>
+</AnchorPane>

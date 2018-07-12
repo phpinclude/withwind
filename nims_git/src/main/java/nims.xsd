@@ -1,0 +1,1910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+	targetNamespace="https://www.nims.or.kr/schema/nims" xmlns="https://www.nims.or.kr/schema/nims"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<!-- 폐기 -->
+	<xs:complexType name="aar">
+        <xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetAAR" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetAAR">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerAAR" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerAAR">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="DSUSE_SE_CD" type="DSUSE_SE_CD" /><!-- 폐기구분코드_ND_07 -->
+			<xs:element name="DSUSE_PRV_CD" type="DSUSE_PRV_CD" /><!-- 폐기사유코드_ND_19 -->
+			<xs:element name="DSUSE_MTH_CD" type="DSUSE_MTH_CD" /><!-- 폐기방법코드_ND_24 -->
+			<xs:element name="DSUSE_LOC" type="DSUSE_LOC" /><!-- 폐기장소 -->
+			<xs:element name="DSUSE_DE" type="DSUSE_DE" /><!-- 폐기일자 -->
+			<xs:element name="DSUSE_INSTT_CD" type="DSUSE_INSTT_CD" /><!-- 폐기관할행정기관코드 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesAAR" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesAAR">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineAAR" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineAAR">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 위수탁입고 -->
+	<xs:complexType name="cni">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetCNI" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="reportSetCNI">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerCNI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerCNI">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RPT_SE_DTL_CD" type="RPT_SE_DTL_CD" /><!-- 보고구분세부코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesCNI" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesCNI">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineCNI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineCNI">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 위수탁출고 -->
+	<xs:complexType name="cnt">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetCNT" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="reportSetCNT">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerCNT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="headerCNT">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RPT_SE_DTL_CD" type="RPT_SE_DTL_CD" /><!-- 보고구분세부코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesCNT" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesCNT">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineCNT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineCNT">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 수출 -->
+	<xs:complexType name="epm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetEPM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetEPM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerEPM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="headerEPM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="EXIM_COUNTRY_CD" type="EXIM_COUNTRY_CD" /><!-- 수출입상대국가코드_A02 -->
+			<xs:element name="EXIM_OSEA_DELNG_NM" type="EXIM_OSEA_DELNG_NM" /><!-- 수출입해외거래업체명 -->
+			<xs:element name="EXIM_CONFM_NO" type="EXIM_CONFM_NO" /><!-- 수출입승인번호 -->
+			<xs:element name="EXIM_NOTIFY_CERT_NO" type="EXIM_NOTIFY_CERT_NO" /><!-- 수출입신고필증발행번호 -->
+			<xs:element name="EXIM_OSEA_DELNG_SIGN" type="EXIM_OSEA_DELNG_SIGN" /><!-- 수출입해외거래업체부호 -->
+			<xs:element name="EXIM_ENTR_DE" type="EXIM_ENTR_DE" /><!-- 수출입통관일자 -->
+			<xs:element name="EXIM_IPP_SPOT_DE" type="EXIM_IPP_SPOT_DE" /><!-- 수출입입출항일자 -->
+			<xs:element name="EXIM_IO_DE" type="EXIM_IO_DE" /><!-- 수출입입출고일자 -->			
+			<xs:element name="EXIM_UC_AMT" type="EXIM_UC_AMT" /><!-- 수출입단가금액 -->
+			<xs:element name="EXIM_AMT" type="EXIM_AMT" /><!-- 수출입금액 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesEPM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesEPM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineEPM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineEPM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 기타입고 -->
+	<xs:complexType name="eti">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetETI" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetETI">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerETI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="headerETI">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RPT_SE_DTL_CD" type="RPT_SE_DTL_CD" /><!-- 보고구분세부코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesETI" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesETI">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineETI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineETI">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 기타출고 -->
+	<xs:complexType name="ett">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetETT" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetETT">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerETT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerETT">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RPT_SE_DTL_CD" type="RPT_SE_DTL_CD" /><!-- 보고구분세부코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesETT" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesETT">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineETT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineETT">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 수입 -->
+	<xs:complexType name="ipm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetIPM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetIPM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerIPM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="headerIPM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RPT_SE_DTL_CD" type="RPT_SE_DTL_CD" /><!-- 보고구분세부코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="EXIM_COUNTRY_CD" type="EXIM_COUNTRY_CD" /><!-- 수출입상대국가코드_A02 -->
+			<xs:element name="EXIM_OSEA_DELNG_NM" type="EXIM_OSEA_DELNG_NM" /><!-- 수출입해외거래업체명 -->
+			<xs:element name="EXIM_CONFM_NO" type="EXIM_CONFM_NO" /><!-- 수출입승인번호 -->
+			<xs:element name="EXIM_NOTIFY_CERT_NO" type="EXIM_NOTIFY_CERT_NO" /><!-- 수출입신고필증발행번호 -->
+			<xs:element name="EXIM_OSEA_DELNG_SIGN" type="EXIM_OSEA_DELNG_SIGN" /><!-- 수출입해외거래업체부호 -->
+			<xs:element name="EXIM_ENTR_DE" type="EXIM_ENTR_DE" /><!-- 수출입통관일자 -->
+			<xs:element name="EXIM_IPP_SPOT_DE" type="EXIM_IPP_SPOT_DE" /><!-- 수출입입출항일자 -->
+			<xs:element name="EXIM_IO_DE" type="EXIM_IO_DE" /><!-- 수출입입출고일자 -->
+			<xs:element name="EXIM_UC_AMT" type="EXIM_UC_AMT" /><!-- 수출입단가금액 -->
+			<xs:element name="EXIM_AMT" type="EXIM_AMT" /><!-- 수출입금액 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesIPM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesIPM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineIPM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineIPM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 투약 -->
+	<xs:complexType name="mcm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetMCM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetMCM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerMCM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="headerMCM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="MDC_PAT_SE_CD" type="MDC_PAT_SE_CD" /><!-- 조제투약환자구분코드 -->
+			<xs:element name="MDC_PAT_ID_NO_TY_CD" type="MDC_PAT_ID_NO_TY_CD" /><!-- 조제투약환자식별번호유형코드_ND_97 -->
+			<xs:element name="MDC_PAT_ID_NO" type="MDC_PAT_ID_NO" /><!-- 조제투약환자식별번호 -->
+			<xs:element name="MDC_PAT_NM" type="MDC_PAT_NM" /><!-- 조제투약환자명 -->
+			<xs:element name="MDC_HPTL_NO" type="MDC_HPTL_NO" /><!-- 조제투약처방요양기관기호 -->
+			<xs:element name="MDC_INSTT_NM" type="MDC_INSTT_NM" /><!-- 조제투약처방기관명 -->
+			<xs:element name="MDC_LCNS_ASORT_CD" type="MDC_LCNS_ASORT_CD" /><!-- 조제투약처방의면허종별코드_M14 -->
+			<xs:element name="MDC_LCNS_NO" type="MDC_LCNS_NO" /><!-- 조제투약처방의면허번호 -->
+			<xs:element name="MDC_PRSC_DOC_NM" type="MDC_PRSC_DOC_NM" /><!-- 조제투약처방의명 -->
+			<xs:element name="MDC_PRSC_ORD_NO" type="MDC_PRSC_ORD_NO" /><!-- 조제투약처방전발급번호 -->
+			<xs:element name="MDC_DISS_CODE" type="MDC_DISS_CODE" /><!-- 조제투약질병분류기호 -->
+			<xs:element name="MDC_ANI_KIND_SE_CD" type="MDC_ANI_KIND_SE_CD" /><!-- 조제투약동물종류구분코드_ND_107 -->
+			<xs:element name="MDC_ANI_CNT" type="MDC_ANI_CNT" /><!-- 조제투약동물수 -->
+			<xs:element name="MDC_ANI_KIND_NM" type="MDC_ANI_KIND_NM" /><!-- 조제투약동물종류명 -->
+			<xs:element name="MDC_ANI_DISS_NM" type="MDC_ANI_DISS_NM" /><!-- 조제투약동물질병명 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesMCM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesMCM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineMCM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="lineMCM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="MDC_SUM_QY" type="MDC_SUM_QY" /><!-- 조제투약량합계 -->
+			<xs:element name="MDC_ONCE_QY" type="MDC_ONCE_QY" /><!-- 조제투약일회량 -->
+			<xs:element name="MDC_ADE_CNT" type="MDC_ADE_CNT" /><!-- 조제투약일일회수 -->
+			<xs:element name="MDC_TOT_DCNT" type="MDC_TOT_DCNT" /><!-- 조제투약총일수 -->
+			<xs:element name="MDC_AFT_DSUSE_QY" type="MDC_AFT_DSUSE_QY" /><!-- 조제투약후폐기량 -->
+			<xs:element name="MDC_AFT_DSUSE_UNIT" type="MDC_AFT_DSUSE_UNIT" /><!-- 조제투약후폐기량단위 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 원료사용 -->
+	<xs:complexType name="mtm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetMTM" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="reportSetMTM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerMTM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerMTM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="MNF_TOT_QY" type="MNF_TOT_QY" /><!-- 제조합계수량 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesMTM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+	
+	<xs:complexType name="linesMTM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineMTM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineMTM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 구입 -->
+	<xs:complexType name="pcm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetPCM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetPCM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerPCM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerPCM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesPCM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesPCM">
+		<xs:sequence>
+			<xs:element name="LINE" type="linePCM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linePCM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+		
+	<!-- 제조 -->
+	<xs:complexType name="pdm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetPDM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetPDM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerPDM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerPDM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="NON_NRCD_MTRAL_AT" type="NON_NRCD_MTRAL_AT" /><!-- 비마약원료여부 -->
+			<xs:element name="MNF_STRT_DE" type="MNF_STRT_DE" /><!-- 제조시작일자 -->
+			<xs:element name="MNF_END_DE" type="MNF_END_DE" /><!-- 제조종료일자 -->
+			<xs:element name="MNF_CNSGN_SE_CD" type="MNF_CNSGN_SE_CD" /><!-- 제조위수탁구분코드_ND_109 -->
+			<xs:element name="MNF_TOT_QY" type="MNF_TOT_QY" /><!-- 제조합계수량 -->
+			<xs:element name="MNF_PRD_UC_AMT" type="MNF_PRD_UC_AMT" /><!-- 제조제품단가금액 -->
+			<xs:element name="MNF_PRD_AMT" type="MNF_PRD_AMT" /><!-- 제조제품금액 -->
+			<xs:element name="MNF_YIELD_RATE" type="MNF_YIELD_RATE" /><!-- 제조수율 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesPDM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesPDM">
+		<xs:sequence>
+			<xs:element name="LINE" type="linePDM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linePDM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- 조제 -->
+	<xs:complexType name="pmm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetPMM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetPMM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerPMM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerPMM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="MDC_PAT_SE_CD" type="MDC_PAT_SE_CD" /><!-- 조제투약환자구분코드 -->
+			<xs:element name="MDC_PAT_ID_NO_TY_CD" type="MDC_PAT_ID_NO_TY_CD" /><!-- 조제투약환자식별번호유형코드_ND_97 -->
+			<xs:element name="MDC_PAT_ID_NO" type="MDC_PAT_ID_NO" /><!-- 조제투약환자식별번호 -->
+			<xs:element name="MDC_PAT_NM" type="MDC_PAT_NM" /><!-- 조제투약환자명 -->
+			<xs:element name="MDC_HPTL_NO" type="MDC_HPTL_NO" /><!-- 조제투약처방요양기관기호 -->
+			<xs:element name="MDC_INSTT_NM" type="MDC_INSTT_NM" /><!-- 조제투약처방기관명 -->
+			<xs:element name="MDC_LCNS_ASORT_CD" type="MDC_LCNS_ASORT_CD" /><!-- 조제투약처방의면허종별코드_M14 -->
+			<xs:element name="MDC_LCNS_NO" type="MDC_LCNS_NO" /><!-- 조제투약처방의면허번호 -->
+			<xs:element name="MDC_PRSC_DOC_NM" type="MDC_PRSC_DOC_NM" /><!-- 조제투약처방의명 -->
+			<xs:element name="MDC_PRSC_ORD_NO" type="MDC_PRSC_ORD_NO" /><!-- 조제투약처방전발급번호 -->
+			<xs:element name="MDC_DISS_CODE" type="MDC_DISS_CODE" /><!-- 조제투약질병분류기호 -->
+			<xs:element name="MDC_ANI_KIND_SE_CD" type="MDC_ANI_KIND_SE_CD" /><!-- 조제투약동물종류구분코드_ND_107 -->
+			<xs:element name="MDC_ANI_CNT" type="MDC_ANI_CNT" /><!-- 조제투약동물수 -->
+			<xs:element name="MDC_ANI_KIND_NM" type="MDC_ANI_KIND_NM" /><!-- 조제투약동물종류명 -->
+			<xs:element name="MDC_ANI_DISS_NM" type="MDC_ANI_DISS_NM" /><!-- 조제투약동물질병명 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesPMM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesPMM">
+		<xs:sequence>
+			<xs:element name="LINE" type="linePMM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linePMM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="MDC_SUM_QY" type="MDC_SUM_QY" /><!-- 조제투약량합계 -->
+			<xs:element name="MDC_ONCE_QY" type="MDC_ONCE_QY" /><!-- 조제투약일회량 -->
+			<xs:element name="MDC_ADE_CNT" type="MDC_ADE_CNT" /><!-- 조제투약일일회수 -->
+			<xs:element name="MDC_TOT_DCNT" type="MDC_TOT_DCNT" /><!-- 조제투약총일수 -->
+			<xs:element name="MDC_AFT_DSUSE_QY" type="MDC_AFT_DSUSE_QY" /><!-- 조제투약후폐기량 -->
+			<xs:element name="MDC_AFT_DSUSE_UNIT" type="MDC_AFT_DSUSE_UNIT" /><!-- 조제투약후폐기량단위 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 판매 -->
+	<xs:complexType name="slm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetSLM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetSLM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerSLM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerSLM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesSLM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesSLM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineSLM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineSLM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 저장소이동 -->
+	<xs:complexType name="smm">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetSMM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetSMM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerSMM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerSMM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesSMM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesSMM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineSMM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineSMM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 양수 -->
+	<xs:complexType name="tni">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetTNI" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetTNI">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerTNI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerTNI">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="TRNSFR_SE_CD" type="TRNSFR_SE_CD" /><!-- 양도구분코드_ND_94 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesTNI" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesTNI">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineTNI" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineTNI">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 양도 -->
+	<xs:complexType name="tnt">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetTNT" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetTNT">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerTNT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerTNT">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="OPP_BSSH_NM" type="OPP_BSSH_NM" /><!-- 상대마약류취급자업체명 -->
+			<xs:element name="OPP_BSSH_CD" type="OPP_BSSH_CD" /><!-- 상대마약류취급자식별번호 -->
+			<xs:element name="OPP_STORGE_NO" type="OPP_STORGE_NO" /><!-- 상대저장소번호 -->
+			<xs:element name="TRNSFR_SE_CD" type="TRNSFR_SE_CD" /><!-- 양도구분코드_ND_94 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesTNT" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesTNT">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineTNT" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineTNT">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="MIN_DISTB_QY" type="MIN_DISTB_QY" /><!-- 최소유통단위수량 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+	
+	<!-- 사용 -->
+	<xs:complexType name="uem">
+		<xs:sequence>
+			<xs:element name="REPORT_SET" type="reportSetUEM" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="reportSetUEM">
+		<xs:sequence>
+			<xs:element name="UID" type="UID" />
+			<xs:element name="HEADER" type="headerUEM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="headerUEM">
+		<xs:sequence>
+			<xs:element name="HDR_DE" type="HDR_DE" /><!-- 취급일자 -->
+			<xs:element name="BSSH_CD" type="BSSH_CD" /><!-- 마약류취급자식별번호 -->
+			<xs:element name="RPT_SE_CD" type="RPT_SE_CD" /><!-- 보고구분코드 -->
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="REF_USR_RPT_ID_NO" type="REF_USR_RPT_ID_NO" /><!-- 참조사용자보고식별번호 -->
+			<xs:element name="RPT_TY_CD" type="RPT_TY_CD" /><!-- 보고유형코드 -->
+			<xs:element name="RMK" type="RMK" /><!-- 비고 -->
+			<xs:element name="RPTR_NM" type="RPTR_NM" /><!-- 보고자명 -->
+			<xs:element name="RPTR_ENTRPS_NM" type="RPTR_ENTRPS_NM" /><!-- 보고자업체명 -->
+			<xs:element name="CHRG_NM" type="CHRG_NM" /><!-- 담당자명 -->
+			<xs:element name="CHRG_TEL_NO" type="CHRG_TEL_NO" /><!-- 담당자전화번호 -->
+			<xs:element name="CHRG_MP_NO" type="CHRG_MP_NO" /><!-- 담당자휴대폰번호 -->
+			<xs:element name="RND_DTL_RPT_CNT" type="RND_DTL_RPT_CNT" /><!-- 수불상세보고수 -->
+			<xs:element name="USE_SE_CD" type="USE_SE_CD" /><!-- 사용구분코드_ND_47 -->
+			<xs:element name="USE_DE" type="USE_DE" /><!-- 사용자사용일자 -->
+			<xs:element name="ATCH_FILE_CO" type="ATCH_FILE_CO" /><!-- 첨부파일건수 -->
+			<xs:element name="REGISTER_ID" type="REGISTER_ID" /><!-- 등록자ID -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+			<xs:element name="LINES" type="linesUEM" minOccurs="0" />
+			<xs:element name="ATCH_FILES" type="atchFiles" minOccurs="0" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="linesUEM">
+		<xs:sequence>
+			<xs:element name="LINE" type="lineUEM" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="lineUEM">
+		<xs:sequence>
+			<xs:element name="USR_RPT_ID_NO" type="USR_RPT_ID_NO" /><!-- 사용자보고식별번호 -->
+			<xs:element name="USR_RPT_LN_ID_NO" type="USR_RPT_LN_ID_NO" /><!-- 사용자보고라인식별번호 -->
+			<xs:element name="STORGE_NO" type="STORGE_NO" /><!-- 저장소번호 -->
+			<xs:element name="MVMN_TY_CD" type="MVMN_TY_CD" /><!-- 이동유형코드 -->
+			<xs:element name="PRDUCT_CD" type="PRDUCT_CD" /><!-- 제품코드 -->
+			<xs:element name="MNF_NO" type="MNF_NO" /><!-- 제조번호 -->
+			<xs:element name="MNF_SEQ" type="MNF_SEQ" /><!-- 제조일련번호 -->
+			<xs:element name="PRD_MIN_DISTB_UNIT" type="PRD_MIN_DISTB_UNIT" /><!-- 제품최소유통단위 -->
+			<xs:element name="PCE_QY" type="PCE_QY" /><!-- 낱개단위수량 -->
+			<xs:element name="PRD_PCE_UNIT" type="PRD_PCE_UNIT" /><!-- 제품낱개단위 -->
+			<xs:element name="PRDUCT_NM" type="PRDUCT_NM" /><!-- 제품명 -->
+			<xs:element name="PRD_SGTIN" type="PRD_SGTIN" /><!-- 제품BarCode_RFID -->
+			<xs:element name="PRD_MIN_DISTB_QY" type="PRD_MIN_DISTB_QY" /><!-- 제품최소유통단위수량 -->
+			<xs:element name="PRD_TOT_PCE_QY" type="PRD_TOT_PCE_QY" /><!-- 제품총낱개단위수량 -->
+			<xs:element name="PRD_VALID_DE" type="PRD_VALID_DE" /><!-- 제품유효기한일자 -->
+			<xs:element name="FILE_CREAT_DT" type="FILE_CREAT_DT" /><!-- 파일생성일시 -->
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="atchFiles">
+		<xs:sequence>
+			<xs:element name="ATCH_FILE_NM" type="xs:string" maxOccurs="unbounded" />
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- 데이터 항목 -->
+	<!-- UID -->
+	<xs:simpleType name="UID">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 취급일자 -->
+	<xs:simpleType name="HDR_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 마약류취급자식별번호 -->
+	<xs:simpleType name="BSSH_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 보고구분코드 -->
+	<xs:simpleType name="RPT_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+			<xs:pattern value="[A-Z]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 사용자보고식별번호 -->
+	<xs:simpleType name="USR_RPT_ID_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="22" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 참조사용자보고식별번호 -->
+	<xs:simpleType name="REF_USR_RPT_ID_NO">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="22" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 보고유형코드 -->
+	<xs:simpleType name="RPT_TY_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 보고구분세부코드 -->
+	<xs:simpleType name="RPT_SE_DTL_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 비고 -->
+	<xs:simpleType name="RMK">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="2000" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 보고자명 -->
+	<xs:simpleType name="RPTR_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 보고자업체명 -->
+	<xs:simpleType name="RPTR_ENTRPS_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 담당자명 -->
+	<xs:simpleType name="CHRG_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 담당자전화번호 -->
+	<xs:simpleType name="CHRG_TEL_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 담당자휴대폰번호 -->
+	<xs:simpleType name="CHRG_MP_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="512" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수불상세보고수 -->
+	<xs:simpleType name="RND_DTL_RPT_CNT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 비마약원료여부 -->
+	<xs:simpleType name="NON_NRCD_MTRAL_AT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1" />
+			<xs:pattern value="[Y|N]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 비마약제조여부 -->
+	<xs:simpleType name="NON_NRCD_MNF_AT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1" />
+			<xs:pattern value="[Y|N]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조제품단가금액 -->
+	<xs:simpleType name="MNF_PRD_UC_AMT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조제품금액 -->
+	<xs:simpleType name="MNF_PRD_AMT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조수율 -->
+	<xs:simpleType name="MNF_YIELD_RATE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입단가금액 -->
+	<xs:simpleType name="EXIM_UC_AMT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입금액 -->
+	<xs:simpleType name="EXIM_AMT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 첨부파일건수 -->
+	<xs:simpleType name="ATCH_FILE_CO">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 등록자ID -->
+	<xs:simpleType name="REGISTER_ID">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 파일생성일시 -->
+	<xs:simpleType name="FILE_CREAT_DT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 사용자보고라인식별번호 -->
+	<xs:simpleType name="USR_RPT_LN_ID_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="22" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 저장소번호 -->
+	<xs:simpleType name="STORGE_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="22" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 이동유형코드 -->
+	<xs:simpleType name="MVMN_TY_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="22" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품코드 -->
+	<xs:simpleType name="PRDUCT_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="14" />
+			<xs:pattern value="[0-9a-zA-Z]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조번호 -->
+	<xs:simpleType name="MNF_NO">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조일련번호 -->
+	<xs:simpleType name="MNF_SEQ">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 최소유통단위수량 -->
+	<xs:simpleType name="MIN_DISTB_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품최소유통단위 -->
+	<xs:simpleType name="PRD_MIN_DISTB_UNIT">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 낱개단위수량 -->
+	<xs:simpleType name="PCE_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품낱개단위 -->
+	<xs:simpleType name="PRD_PCE_UNIT">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품명 -->
+	<xs:simpleType name="PRDUCT_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품BarCode_RFID -->
+	<xs:simpleType name="PRD_SGTIN">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="68" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품최소유통단위수량 -->
+	<xs:simpleType name="PRD_MIN_DISTB_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품총낱개단위수량 -->
+	<xs:simpleType name="PRD_TOT_PCE_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제품유효기한일자 -->
+	<xs:simpleType name="PRD_VALID_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 상대마약류취급자업체명 -->
+	<xs:simpleType name="OPP_BSSH_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="1000" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 상대마약류취급자식별번호 -->
+	<xs:simpleType name="OPP_BSSH_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="40" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 상대저장소번호 -->
+	<xs:simpleType name="OPP_STORGE_NO">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="16" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입상대국가코드_A02 -->
+	<xs:simpleType name="EXIM_COUNTRY_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="2" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입해외거래업체명 -->
+	<xs:simpleType name="EXIM_OSEA_DELNG_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입승인번호 -->
+	<xs:simpleType name="EXIM_CONFM_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="40" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입신고필증발행번호 -->
+	<xs:simpleType name="EXIM_NOTIFY_CERT_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="25" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입해외거래업체부호 -->
+	<xs:simpleType name="EXIM_OSEA_DELNG_SIGN">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="120" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입통관일자 -->
+	<xs:simpleType name="EXIM_ENTR_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입입출항일자 -->
+	<xs:simpleType name="EXIM_IPP_SPOT_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 수출입입출고일자 -->
+	<xs:simpleType name="EXIM_IO_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조시작일자 -->
+	<xs:simpleType name="MNF_STRT_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조종료일자 -->
+	<xs:simpleType name="MNF_END_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 제조위수탁구분코드_ND_109 -->
+	<xs:simpleType name="MNF_CNSGN_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="1" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 제조합계수량 -->
+	<xs:simpleType name="MNF_TOT_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="13" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 조제투약환자구분코드 -->
+	<xs:simpleType name="MDC_PAT_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약환자식별번호유형코드_ND_97 -->
+	<xs:simpleType name="MDC_PAT_ID_NO_TY_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약환자식별번호 -->
+	<xs:simpleType name="MDC_PAT_ID_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="512" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약환자명 -->
+	<xs:simpleType name="MDC_PAT_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방요양기관기호 -->
+	<xs:simpleType name="MDC_HPTL_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방기관명 -->
+	<xs:simpleType name="MDC_INSTT_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방의면허종별코드_M14 -->
+	<xs:simpleType name="MDC_LCNS_ASORT_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방의면허번호 -->
+	<xs:simpleType name="MDC_LCNS_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="20" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방의명 -->
+	<xs:simpleType name="MDC_PRSC_DOC_NM">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="40" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약처방전발급번호 -->
+	<xs:simpleType name="MDC_PRSC_ORD_NO">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="40" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약질병분류기호 -->
+	<xs:simpleType name="MDC_DISS_CODE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="60" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약량합계 -->
+	<xs:simpleType name="MDC_SUM_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약일회량 -->
+	<xs:simpleType name="MDC_ONCE_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약일일회수 -->
+	<xs:simpleType name="MDC_ADE_CNT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="12" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약총일수 -->
+	<xs:simpleType name="MDC_TOT_DCNT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약후폐기량 -->
+	<xs:simpleType name="MDC_AFT_DSUSE_QY">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="18" />
+			<xs:pattern value="[0-9.]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약후폐기량단위 -->
+	<xs:simpleType name="MDC_AFT_DSUSE_UNIT">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약동물종류구분코드_ND_107 -->
+	<xs:simpleType name="MDC_ANI_KIND_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약동물수 -->
+	<xs:simpleType name="MDC_ANI_CNT">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="5" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<!-- 조제투약동물종류명 -->
+	<xs:simpleType name="MDC_ANI_KIND_NM">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="120" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 조제투약동물질병명 -->
+	<xs:simpleType name="MDC_ANI_DISS_NM">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="300" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 사용구분코드_ND_47 -->
+	<xs:simpleType name="USE_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 사용자사용일자 -->
+	<xs:simpleType name="USE_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 양도구분코드_ND_94 -->
+	<xs:simpleType name="TRNSFR_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기구분코드_ND_07 -->
+	<xs:simpleType name="DSUSE_SE_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기사유코드_ND_19 -->
+	<xs:simpleType name="DSUSE_PRV_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기방법코드_ND_24 -->
+	<xs:simpleType name="DSUSE_MTH_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="10" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기장소 -->
+	<xs:simpleType name="DSUSE_LOC">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="120" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기일자 -->
+	<xs:simpleType name="DSUSE_DE">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="8" />
+			<xs:pattern value="[0-9]+" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- 폐기관할행정기관코드 -->
+	<xs:simpleType name="DSUSE_INSTT_CD">
+		<xs:restriction base="xs:string">
+			<xs:minLength value="1" />
+			<xs:maxLength value="7" />
+		</xs:restriction>
+	</xs:simpleType>
+
+	<xs:element name="aar_regist" type="aar" />
+	<xs:element name="cni_regist" type="cni" />
+	<xs:element name="cnt_regist" type="cnt" />
+	<xs:element name="epm_regist" type="epm" />
+	<xs:element name="eti_regist" type="eti" />
+	<xs:element name="ett_regist" type="ett" />
+	<xs:element name="ipm_regist" type="ipm" />
+	<xs:element name="mcm_regist" type="mcm" />
+	<xs:element name="mtm_regist" type="mtm" />
+	<xs:element name="pcm_regist" type="pcm" />
+	<xs:element name="pdm_regist" type="pdm" />
+	<xs:element name="pmm_regist" type="pmm" />
+	<xs:element name="slm_regist" type="slm" />
+	<xs:element name="smm_regist" type="smm" />
+	<xs:element name="tnt_regist" type="tni" />
+	<xs:element name="tni_regist" type="tnt" />
+	<xs:element name="uem_regist" type="uem" />
+</xs:schema>

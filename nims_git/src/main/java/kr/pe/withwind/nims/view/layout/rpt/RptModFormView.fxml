@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.layout.rpt.RptModFormController">
+   <children>
+      <VBox layoutX="14.0" layoutY="14.0" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <AnchorPane>
+               <children>
+                  <Label text="헤더정보">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="btGetData" layoutX="932.0" mnemonicParsing="false" text="데이터가져오기" visible="false" AnchorPane.rightAnchor="5.0" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <GridPane fx:id="gpHeaderInput">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </GridPane>
+            <Separator prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="10.0" top="10.0" />
+               </VBox.margin>
+            </Separator>
+            <Label text="라인정보">
+               <font>
+                  <Font size="18.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <GridPane fx:id="gpLineInput">
+               <VBox.margin>
+                  <Insets left="5.0" right="5.0" />
+               </VBox.margin>
+            </GridPane>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btLineAdd" layoutX="789.0" mnemonicParsing="false" text="추가" AnchorPane.rightAnchor="167.0" AnchorPane.topAnchor="0.0" />
+                  <Button fx:id="btLineChange" layoutX="846.0" mnemonicParsing="false" text="선택변경" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="0.0" />
+                  <Button fx:id="btLineDel" layoutX="932.0" mnemonicParsing="false" text="선택삭제" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+            <TableView fx:id="mainTable" prefHeight="768.0">
+               <VBox.margin>
+                  <Insets top="5.0" />
+               </VBox.margin>
+            </TableView>
+            <AnchorPane maxHeight="-Infinity" minHeight="-Infinity" prefHeight="60.0">
+               <children>
+                  <Button fx:id="btRegist" layoutX="881.0" mnemonicParsing="false" text="보고하기" AnchorPane.rightAnchor="60.0" />
+                  <Button fx:id="btClose" layoutX="956.0" layoutY="3.0" mnemonicParsing="false" text="닫기" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="0.0" />
+                  <Separator layoutX="7.0" layoutY="24.0" prefWidth="200.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="30.0" />
+                  <ProgressBar layoutY="37.0" prefWidth="200.0" progress="0.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </AnchorPane>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

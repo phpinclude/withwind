@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="748.0" prefWidth="1024.0" style="-fx-background-color: #FFFFFF;" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="kr.pe.withwind.nims.view.layout.PreferenceController">
+   <children>
+      <Label layoutX="128.0" layoutY="92.0" text="암호화공개키" />
+      <TextField fx:id="tfPublicKeyT" layoutX="215.0" layoutY="88.0" prefHeight="23.0" prefWidth="593.0" />
+      <Label layoutX="164.0" layoutY="126.0" text="인증키" />
+      <TextField fx:id="tfAuthKeyT" layoutX="215.0" layoutY="122.0" prefHeight="23.0" prefWidth="593.0" />
+      <Label layoutX="76.0" layoutY="160.0" text="마약류취급자 식별번호" />
+      <TextField fx:id="tfBsshCdT" layoutX="215.0" layoutY="156.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="335.0" layoutY="160.0" text="보고업체명" />
+      <TextField fx:id="tfRptrEntrpsNmT" layoutX="411.0" layoutY="156.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="545.0" layoutY="160.0" text="보고자명" />
+      <TextField fx:id="tfRptrNmT" layoutX="623.0" layoutY="156.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="152.0" layoutY="197.0" text="담당자명" />
+      <TextField fx:id="tfChrgNmT" layoutX="215.0" layoutY="193.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="335.0" layoutY="197.0" text="담당자 웹 로그인아이디" />
+      <TextField fx:id="tfRegisterIdT" layoutX="486.0" layoutY="193.0" />
+      <Label layoutX="110.0" layoutY="235.0" text="담당자 전화번호" />
+      <TextField fx:id="tfChrgTelNoT" layoutX="216.0" layoutY="231.0" />
+      <Label layoutX="378.0" layoutY="235.0" text="담당자휴대전화번호" />
+      <TextField fx:id="tfChrgMpNoT" layoutX="508.0" layoutY="231.0" />
+      <Button layoutX="963.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleTestBt" text="변경" />
+      <Label layoutX="76.0" layoutY="65.0" text="TEST 정보" />
+      <Separator layoutX="17.0" layoutY="330.0" prefHeight="0.0" prefWidth="989.0" />
+      <Label layoutX="74.0" layoutY="374.0" text="운영 정보" />
+      <Label layoutX="126.0" layoutY="402.0" text="암호화공개키" />
+      <TextField fx:id="tfPublicKeyR" layoutX="220.0" layoutY="398.0" prefHeight="23.0" prefWidth="593.0" />
+      <Label layoutX="77.0" layoutY="469.0" text="마약류취급자 식별번호" />
+      <TextField fx:id="tfBsshCdR" layoutX="221.0" layoutY="465.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="165.0" layoutY="436.0" text="인증키" />
+      <TextField fx:id="tfAuthKeyR" layoutX="220.0" layoutY="432.0" prefHeight="23.0" prefWidth="593.0" />
+      <Label layoutX="336.0" layoutY="469.0" text="보고업체명" />
+      <TextField fx:id="tfRptrEntrpsNmR" layoutX="411.0" layoutY="465.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="543.0" layoutY="469.0" text="보고자명" />
+      <TextField fx:id="tfRptrNmR" layoutX="621.0" layoutY="465.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="158.0" layoutY="503.0" text="담당자명" />
+      <TextField fx:id="tfChrgNmR" layoutX="221.0" layoutY="499.0" prefHeight="23.0" prefWidth="100.0" />
+      <Label layoutX="341.0" layoutY="503.0" text="담당자 웹 로그인아이디" />
+      <TextField fx:id="tfRegisterIdR" layoutX="492.0" layoutY="499.0" />
+      <Label layoutX="116.0" layoutY="541.0" text="담당자 전화번호" />
+      <TextField fx:id="tfChrgTelNoR" layoutX="222.0" layoutY="537.0" />
+      <Label layoutX="384.0" layoutY="541.0" text="담당자휴대전화번호" />
+      <TextField fx:id="tfChrgMpNoR" layoutX="514.0" layoutY="537.0" />
+      <Button layoutX="963.0" layoutY="582.0" mnemonicParsing="false" onAction="#handleRealBt" text="변경" />
+   </children>
+</AnchorPane>

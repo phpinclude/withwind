@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="RptInfo">
+	<select id="getRptList" parameterType="uploadResult" resultType="uploadResult">
+		SELECT 
+			BSSH_CD
+			,RPT_SE_CD
+		    ,USR_RPT_ID_NO
+		    ,RESULT_CD
+		    ,RESULT_MSG
+		    ,RPT_RCEPT_NO
+		    ,RPT_FILE_NAME
+		    ,REG_DT
+		    ,RPT_TY_CD
+		FROM RPT_LIST
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+		<if test="rptSeCd != null">
+			AND RPT_SE_CD = #{rptSeCd}
+		</if>
+		<if test="rptTyCd != null">
+			AND RPT_TY_CD = #{rptTyCd}
+		</if>
+		<if test="rptFileName != null">
+			AND RPT_FILE_NAME = #{rptFileName}
+		</if>
+		<if test="resultCd != null">
+			AND RESULT_CD = #{resultCd}
+		</if>
+		<if test="searchSt != null">
+			<![CDATA[AND REG_DT >= #{searchSt}]]>
+		</if>
+		<if test="searchEn != null">
+			<![CDATA[AND REG_DT <= #{searchEn}]]>
+		</if>
+		
+		ORDER BY REG_DT DESC
+		
+	</select>
+	
+	<select id="getRptByPk" parameterType="uploadResult" resultType="uploadResult">
+		SELECT 
+			BSSH_CD
+			,RPT_SE_CD
+		    ,USR_RPT_ID_NO
+		    ,RPT_TY_CD
+		    ,RESULT_CD
+		    ,RESULT_MSG
+		    ,RPT_RCEPT_NO
+		    ,RPT_FILE_NAME
+		    ,REG_DT
+		FROM RPT_LIST
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+	</select>
+	
+	<select id="getRptErrList" parameterType="resultErrInfo" resultType="resultErrInfo">
+		SELECT 
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,IDX
+		    ,ERROR_CD
+		    ,ERROR_MSG
+		FROM RPT_ERR_INFO
+		WHERE 1=1
+		<if test="bsshCd != null">
+			AND BSSH_CD = #{bsshCd}
+		</if>
+		<if test="usrRptIdNo != null">
+			AND USR_RPT_ID_NO = #{usrRptIdNo}
+		</if>
+		ORDER BY IDX
+	</select>
+	
+	<insert id="insertRptInfo" parameterType="uploadResult">
+		INSERT INTO RPT_LIST (
+			BSSH_CD
+			,RPT_SE_CD
+		    ,USR_RPT_ID_NO
+		    ,RESULT_CD
+		    ,RESULT_MSG
+		    ,RPT_RCEPT_NO
+		    ,RPT_FILE_NAME
+		    ,RPT_TY_CD
+		)
+		VALUES (
+			#{bsshCd}
+			,#{rptSeCd}
+		    ,#{usrRptIdNo}
+		    ,#{resultCd}
+		    ,#{resultMsg}
+		    ,#{rptRceptNo}
+		    ,#{rptFileName}
+		    ,#{rptTyCd}
+		)
+	</insert>
+	
+	<insert id="insertRptErrInfo" parameterType="resultErrInfo">
+		INSERT INTO RPT_ERR_INFO (
+			BSSH_CD
+		    ,USR_RPT_ID_NO
+		    ,IDX
+		    ,ERROR_CD
+		    ,ERROR_MSG
+		)
+		VALUES (
+			#{bsshCd}
+			,#{usrRptIdNo}
+		    ,#{idx}
+		    ,#{errorCd}
+		    ,#{errorMsg}
+		)
+	</insert>
+	
+</mapper>

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ProductInfo">
+
+	<sql id="ifEquals">
+		<if test="productCd != null">
+			AND PRODUCT_CD like #{productCd}
+		</if>
+		<if test="productMstCd != null">
+			AND PRODUCT_MST_CD like #{productMstCd}
+		</if>
+		<if test="nrcdSeNm != null">
+			AND NRCD_SE_NM like #{nrcdSeNm}
+		</if>
+		<if test="productNm != null">
+			AND PRODUCT_NM like #{productNm}
+		</if>
+		<if test="prtmSeNm != null">
+			AND PRTM_SE_NM like #{prtmSeNm}
+		</if>
+		<if test="minQtyNm != null">
+			AND MIN_QTY_NM like #{minQtyNm}
+		</if>
+		<if test="pceNm != null">
+			AND PCE_NM like #{pceNm}
+		</if>
+	</sql>
+	
+	<update id="create">
+		CREATE TABLE PRODUCT_INFO
+		(
+		    PRODUCT_CD VARCHAR(200) NOT NULL,
+		    PRODUCT_MST_CD VARCHAR(200),
+		    NRCD_SE_NM VARCHAR(50),
+		    PRODUCT_NM VARCHAR(200),
+		    PRTM_SE_NM VARCHAR(100),
+		    MIN_QTY VARCHAR(100),
+		    MIN_QTY_NM VARCHAR(100),
+		    PCE_CNT VARCHAR(100),
+		    PCE_NM VARCHAR(100),
+		    PRIMARY KEY (PRODUCT_CD)
+		)
+	</update>
+
+	<select id="selectAll" resultType="productInfo">
+		SELECT 
+			PRODUCT_CD
+			,PRODUCT_MST_CD
+			,NRCD_SE_NM
+			,PRODUCT_NM
+			,PRTM_SE_NM
+			,MIN_QTY
+			,MIN_QTY_NM
+			,PCE_CNT
+			,PCE_NM 
+		FROM PRODUCT_INFO
+		ORDER BY PRODUCT_CD
+	</select>
+	
+	<select id="selectByPk" parameterType="productInfo" resultType="productInfo">
+		SELECT 
+			PRODUCT_CD
+			,PRODUCT_MST_CD
+			,NRCD_SE_NM
+			,PRODUCT_NM
+			,PRTM_SE_NM
+			,MIN_QTY
+			,MIN_QTY_NM
+			,PCE_CNT
+			,PCE_NM  
+		FROM PRODUCT_INFO
+		WHERE 1=1
+			AND PRODUCT_CD = #{productCd}
+	</select>
+	
+	<select id="selectByParam" parameterType="productInfo" resultType="productInfo">
+		SELECT 
+			PRODUCT_CD
+			,PRODUCT_MST_CD
+			,NRCD_SE_NM
+			,PRODUCT_NM
+			,PRTM_SE_NM
+			,MIN_QTY
+			,MIN_QTY_NM
+			,PCE_CNT
+			,PCE_NM  
+		FROM PRODUCT_INFO
+		WHERE 1=1
+		<include refid="ifEquals" />
+		ORDER BY PRODUCT_CD
+	</select>
+	
+	<insert id="insert" parameterType="productInfo">
+		INSERT INTO PRODUCT_INFO (
+			PRODUCT_CD
+			,PRODUCT_MST_CD
+			,NRCD_SE_NM
+			,PRODUCT_NM
+			,PRTM_SE_NM
+			,MIN_QTY
+			,MIN_QTY_NM
+			,PCE_CNT
+			,PCE_NM
+		)
+		VALUES (
+			#{productCd}
+			,#{productMstCd}
+			,#{nrcdSeNm}
+			,#{productNm}
+			,#{prtmSeNm}
+			,#{minQty}
+			,#{minQtyNm}
+			,#{pceCnt}
+			,#{pceNm}
+		)
+	</insert>
+	
+	<update id="updateByPk" parameterType="productInfo">
+		UPDATE PRODUCT_INFO SET
+			PRODUCT_CD = #{productCd}
+			<if test="productMstCd != null">,PRODUCT_MST_CD = #{productMstCd}</if>
+			<if test="nrcdSeNm != null">,NRCD_SE_NM = #{nrcdSeNm}</if>
+			<if test="productNm != null">,PRODUCT_NM = #{productNm}</if>
+			<if test="prtmSeNm != null">,PRTM_SE_NM = #{prtmSeNm}</if>
+			<if test="minQty != null">,MIN_QTY = #{minQty}</if>
+			<if test="minQtyNm != null">,MIN_QTY_NM = #{minQtyNm}</if>
+			<if test="pceCnt != null">,PCE_CNT = #{pceCnt}</if>
+			<if test="pceNm != null">,PCE_NM = #{pceNm}</if>
+		WHERE 1=1
+			AND PRODUCT_CD = #{productCd}
+	</update>
+	
+	<delete id="deleteByPk" parameterType="productInfo">
+		DELETE FROM PRODUCT_INFO 
+		WHERE 1=1
+			AND PRODUCT_CD = #{productCd}
+	</delete>
+	
+	<delete id="deleteAll">
+		DELETE FROM PRODUCT_INFO 
+	</delete>
+</mapper>
