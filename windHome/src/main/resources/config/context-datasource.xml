@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+                        http://www.springframework.org/schema/jdbc  http://www.springframework.org/schema/jdbc/spring-jdbc-3.0.xsd">
+
+
+	<bean id="dsMysql" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+		<property name="driverClassName" value="com.mysql.jdbc.Driver" />
+		<property name="url" value="jdbc:mysql://localhost:3306/wind_home" />
+		<property name="username" value="root" />
+		<property name="password" value="chlghdus11" />
+	</bean>
+
+	
+	<bean id="sqlSessionFactoryMysql" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<beans:qualifier value="mysqlSessionFactory"/>
+        <property name="dataSource" ref="dsMysql" />
+        <property name="mapperLocations" value="classpath*:kr/pe/withwind/mapper/*.xml" />
+        <property name="plugins">
+        	<array>
+        		<bean class="kr.pe.withwind.spring.interceptor.MybatisInterCeptor" />
+        	</array>
+        </property>
+    </bean>
+    
+    <bean id="sqlSessionTemplateMysql" class="org.mybatis.spring.SqlSessionTemplate">
+    	<beans:qualifier value="mysqlSessionTemplate"/>
+        <constructor-arg index="0" ref="sqlSessionFactoryMysql"/>
+    </bean>
+
+	<!-- 아래 셋팅은 같은 맵퍼이름이 중복되게 되어 있다. 이때 중복되면 먼저 선점한 것이 우선시 됨으로 뒤에 셋팅된 것은 적용이 안된다. -->
+	<!-- 해결책은 맵퍼 인터페이스를 모두 다르게 하는 것이다.(이름, 패키지) -->
+	<bean id="mapperConfig1" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="kr.pe.withwind.spring.mapper" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryMysql" />
+	</bean>
+	
+	
+<!-- 	<bean id="mapperConfig2" class="org.mybatis.spring.mapper.MapperScannerConfigurer"> -->
+<!-- 		<property name="basePackage" value="kr.pe.withwind.ahcs.mapper" /> -->
+<!-- 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactoryOracle" /> -->
+<!-- 	</bean> -->
+
+<!-- 	<beans:bean id="DBManager" class="kr.pe.withwind.db.DBManager" scope="singleton"> -->
+<!-- 		<beans:qualifier value="windDbManager"/> -->
+<!-- 	</beans:bean> -->
+	
+<!-- 	<beans:bean id="statementUtils" class="kr.pe.withwind.utils.StatementUtils" scope="singleton"> -->
+<!-- 		<beans:property name="dbManager" ref="DBManager"/> -->
+<!-- 	</beans:bean> -->
+
+</beans>
